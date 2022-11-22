@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rivenditore"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1200">
+        Title="Gestionale Rivenditore" Height="700" Width="1200">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -17,13 +17,14 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0">
-            <MenuItem Header="File" >
-                <MenuItem Header="Logout"></MenuItem>
+            <MenuItem Header="File">
+                <MenuItem Header="Menu" Name="Menu" Click="Menu_Click"></MenuItem>
+                <MenuItem Header="Logout" Name="Logout" Click="Logout_Click"></MenuItem>
             </MenuItem>
-            <MenuItem x:Name="MenuItemClienti" Header="Clienti" Click="MenuItemClienti_Click"></MenuItem>
-            <MenuItem x:Name="MenuItemOrdini" Header="Ordini" Click="MenuItemOrdini_Click"></MenuItem>
-            <MenuItem x:Name="MenuItemArticoli" Header="Articoli" Click="MenuItemArticoli_Click"></MenuItem>
-            <MenuItem Header="?"></MenuItem>
+            <MenuItem Name="MenuItemClienti" Header="Clienti" Click="MenuItemClienti_Click"></MenuItem>
+            <MenuItem Name="MenuItemOrdini" Header="Ordini" Click="MenuItemOrdini_Click"></MenuItem>
+            <MenuItem Name="MenuItemArticoli" Header="Articoli" Click="MenuItemArticoli_Click"></MenuItem>
+            <MenuItem Header="?" Click="MenuItem_Click_About"></MenuItem>
         </Menu>
         <Frame x:Name="NavigationFrame" Grid.Row="1" Source="./Views/MainMenu.xaml" NavigationUIVisibility="Hidden"></Frame>
     </Grid>

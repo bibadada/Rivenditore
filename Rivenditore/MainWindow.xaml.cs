@@ -44,5 +44,20 @@ namespace Rivenditore
         {
             NavigationFrame.Navigate(new Items());
         }
+
+        private void Menu_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationFrame.Navigate(new MainMenu());
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        
+        private void MenuItem_Click_About(object sender, RoutedEventArgs e)
+        {
+            //TODO MESSAGEBOX
+        }
     }
 }
