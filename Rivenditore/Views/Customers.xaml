@@ -9,6 +9,35 @@
       Title="Customers">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="10" FontSize="30" >Clienti</Label>
+
+
+        <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Margin="10">
+            <Button  Content="Nuovo Cliente" Height="70"  FontSize="16"/>
+        </StackPanel>
+        <DataGrid  AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="FiscalCode" Binding="{Binding FiscalCode}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="City" Binding="{Binding City}"/>
+                <DataGridTextColumn Header="Cap" Binding="{Binding Cap}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
     </Grid>
 </Page>
