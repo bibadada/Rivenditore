@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rivenditore"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="1200">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="File" >
+                <MenuItem Header="Logout"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Clienti"></MenuItem>
+            <MenuItem Header="Ordini"></MenuItem>
+            <MenuItem Header="Articoli"></MenuItem>
+            <MenuItem Header="?"></MenuItem>
+        </Menu>
+        <Frame x:Name="NavigationFrame" Grid.Row="1" Source="./Views/MainMenu.xaml" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>
