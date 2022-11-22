@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Rivenditore.ViewModels;
+using Rivenditore.Views;
 
 namespace Rivenditore
 {
@@ -20,24 +22,27 @@ namespace Rivenditore
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainWindowViewModel vm;
         public MainWindow()
         {
             InitializeComponent();
+            vm = new MainWindowViewModel();
+            this.DataContext = vm;
         }
 
         private void MenuItemClienti_Click(object sender, RoutedEventArgs e)
         {
-            
+            NavigationFrame.Navigate(new Customers());
         }
 
         private void MenuItemOrdini_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationFrame.Navigate(new Orders());
         }
 
         private void MenuItemArticoli_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationFrame.Navigate(new Items());
         }
     }
 }
