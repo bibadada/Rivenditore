@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Rivenditore.ViewModels;
 
 namespace Rivenditore.Views
 {
@@ -20,9 +21,12 @@ namespace Rivenditore.Views
     /// </summary>
     public partial class Customers : Page
     {
+        CustomersViewModel vm;
         public Customers()
         {
             InitializeComponent();
+            vm = new CustomersViewModel();
+            this.DataContext = vm;
         }
     }
 }
