@@ -24,5 +24,20 @@ namespace Rivenditore
         {
             InitializeComponent();
         }
+
+        private void MenuItemClienti_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void MenuItemOrdini_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItemArticoli_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
