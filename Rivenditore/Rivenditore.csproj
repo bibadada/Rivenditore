@@ -69,6 +69,7 @@
     </ApplicationDefinition>
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Models\Customer.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
