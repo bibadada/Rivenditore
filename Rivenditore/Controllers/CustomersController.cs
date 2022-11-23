@@ -47,5 +47,23 @@ namespace Rivenditore.Controllers
                 }
             }
         }
+
+       //da ricordarsi i vincoli di integrità referenziale
+        public static void Delete(Customer c)
+        {
+            using (RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    context.Customers.Remove(c);
+                    context.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
     }
 }
