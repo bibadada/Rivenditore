@@ -22,7 +22,7 @@ namespace Rivenditore.ViewModels
 
         public OrdersViewModel()
         {
-          
+            Setup();
         }
 
         public async Task Setup()

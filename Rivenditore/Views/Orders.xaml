@@ -28,11 +28,11 @@
         <DataGrid  ItemsSource="{Binding ListaOrders}" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="IdOrder" Binding="{Binding IdOrder}"/>
-                <DataGridTextColumn Header="IdItem" Binding="{Binding IdItem}"/>
-                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
-                <DataGridTextColumn Header="SinglePrice" Binding="{Binding SinglePrice}"/>
-                
+                <DataGridTextColumn Header="IdCustomer" Binding="{Binding IdCustomer}"/>
+                <DataGridTextColumn Header="IdOrderStates" Binding="{Binding IdOrderStates}"/>
+                <DataGridTextColumn Header="OrderDate" Binding="{Binding OrderDate}"/>
+                <DataGridTextColumn Header="DateOrederPlaced" Binding="{Binding DateOrederPlaced}"/>
+                <DataGridTextColumn Header="Notes" Binding="{Binding Notes}"/>
             </DataGrid.Columns>
 
         </DataGrid>
