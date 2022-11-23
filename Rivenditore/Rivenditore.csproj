@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Models\Customer.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
