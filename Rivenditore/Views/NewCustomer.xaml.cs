@@ -10,28 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Rivenditore.ViewModels;
 
 namespace Rivenditore.Views
 {
     /// <summary>
-    /// Logica di interazione per Customers.xaml
+    /// Logica di interazione per NewCustomer.xaml
     /// </summary>
-    public partial class Customers : Page
+    public partial class NewCustomer : Window
     {
-        CustomersViewModel vm;
-        public Customers()
+        private NewCustomerViewModel vm;
+        public NewCustomer()
         {
             InitializeComponent();
-            vm = new CustomersViewModel();
-            this.DataContext = vm;
-        }
-
-        private void NuovoCliente_Click(object sender, RoutedEventArgs e)
-        {
-            vm.NuovoCliente();
+            vm = new NewCustomerViewModel();
+            DataContext = vm;
         }
     }
 }
