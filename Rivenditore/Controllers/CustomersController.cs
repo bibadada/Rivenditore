@@ -27,5 +27,43 @@ namespace Rivenditore.Controllers
             }
 
         }
+
+        public static void Insert(Customer c)
+        {
+            using(RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    if(c != null)
+                    {
+                        context.Customers.Add(c);
+                        context.SaveChanges();
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+       //da ricordarsi i vincoli di integrità referenziale
+        public static void Delete(Customer c)
+        {
+            using (RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    context.Customers.Remove(c);
+                    context.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
     }
 }
