@@ -40,6 +40,7 @@ namespace Rivenditore.ViewModels
         {
             NewCustomer newCustomer = new NewCustomer();
             newCustomer.ShowDialog();
+            Setup();
         }
     }
 }
