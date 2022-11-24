@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Rivenditore.Models;
 using Rivenditore.Controllers;
+using Rivenditore.Views;
 
 namespace Rivenditore.ViewModels
 {
@@ -33,6 +34,12 @@ namespace Rivenditore.ViewModels
         private async Task Setup()
         {
             ListaCustomers = await CustomersController.GetAll();
+        }
+
+        internal void NuovoCliente()
+        {
+            NewCustomer newCustomer = new NewCustomer();
+            newCustomer.ShowDialog();
         }
     }
 }

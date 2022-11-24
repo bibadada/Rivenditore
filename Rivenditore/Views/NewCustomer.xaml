@@ -1,0 +1,71 @@
+﻿<Window x:Class="Rivenditore.Views.NewCustomer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rivenditore.Views"
+        mc:Ignorable="d"
+        Title="NewCustomer" Height="540" Width="820" MinWidth="820" MinHeight="534">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Nuovo Cliente o binding" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="10"  ></Label>
+        <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
+            <Label FontSize="16">Nome:</Label>
+            <TextBox Text="{Binding SelectedCustomer.FirstName}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
+            <Label FontSize="16">Cognome:</Label>
+            <TextBox Text="{Binding SelectedCustomer.LastName}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
+            <Label FontSize="16">Codice Fiscale</Label>
+            <TextBox Text="{Binding SelectedCustomer.FiscalCode}" Height="30" FontSize="16" MaxLines="1" IsEnabled="{Binding IdEnabled}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
+            <Label FontSize="16">Email:</Label>
+            <TextBox Text="{Binding SelectedCustomer.Mail}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="3" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
+            <Label FontSize="16">Numero di telefono:</Label>
+            <TextBox Text="{Binding SelectedCustomer.Phone}" Height="30" FontSize="16"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
+            <Label FontSize="16">Indirizzo:</Label>
+            <TextBox Text="{Binding SelectedCustomer.Address}" Height="30" FontSize="16" ></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
+            <Label FontSize="16">Città:</Label>
+            <TextBox Text="{Binding SelectedCustomer.City}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
+            <Label FontSize="16">Cap:</Label>
+            <TextBox Text="{Binding SelectedCustomer.Cap}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button x:Name="Salva"  Content="Salva" Width="100" Height="30" Margin="0 0 10 0" FontSize="14" ></Button>
+            <Button  Content="Annulla" Width="100" Height="30" Margin="0 0 20 0" FontSize="14" ></Button>
+        </StackPanel>
+
+
+    </Grid>
+</Window>
