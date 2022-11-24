@@ -27,5 +27,11 @@ namespace Rivenditore.Views
             vm = new NewCustomerViewModel();
             DataContext = vm;
         }
+
+        private void Salva_Click(object sender, RoutedEventArgs e)
+        {
+            vm.Salva();
+            this.Close();
+        }
     }
 }

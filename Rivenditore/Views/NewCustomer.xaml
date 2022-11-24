@@ -22,12 +22,12 @@
         <Label Content="Nuovo Cliente o binding" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="10"  ></Label>
         <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Nome:</Label>
-            <TextBox Text="{Binding SelectedCustomer.FirstName}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+            <TextBox Text="{Binding SelectedCustomer.Name}" Height="30" FontSize="16" MaxLines="1"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Cognome:</Label>
-            <TextBox Text="{Binding SelectedCustomer.LastName}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+            <TextBox Text="{Binding SelectedCustomer.Surname}" Height="30" FontSize="16" MaxLines="1"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
@@ -62,7 +62,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
-            <Button x:Name="Salva"  Content="Salva" Width="100" Height="30" Margin="0 0 10 0" FontSize="14" ></Button>
+            <Button x:Name="Salva"  Content="Salva" Width="100" Height="30" Margin="0 0 10 0" FontSize="14" Click="Salva_Click" ></Button>
             <Button  Content="Annulla" Width="100" Height="30" Margin="0 0 20 0" FontSize="14" ></Button>
         </StackPanel>
 
