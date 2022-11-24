@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Rivenditore.Controllers;
 using Rivenditore.Models;
 
@@ -29,7 +30,10 @@ namespace Rivenditore.ViewModels
 
         internal void Salva()
         {
-            CustomersController.Insert(SelectedCustomer);
+            if (SelectedCustomer.Name == null && SelectedCustomer.Surname == null)
+                MessageBox.Show("i campi Nome e Cognome devono essere compitlati");
+            else
+                CustomersController.Insert(SelectedCustomer);
         }
 
         #endregion
