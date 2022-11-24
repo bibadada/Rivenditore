@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,16 +50,27 @@ namespace Rivenditore.Controllers
         }
 
        //da ricordarsi i vincoli di integrità referenziale
-        public static void Delete(Customer c)
+        public static List<Customer> Delete(Customer c, List<Customer> list)
         {
             using (RivenditoreEntities context = new RivenditoreEntities())
             {
                 try
                 {
-                    context.Customers.Remove(c);
-                    context.SaveChanges();
+                    Customer candidate = context.Customers.Where(w => w.Id == c.Id).FirstOrDefault();
+                    if(candidate != null)
+                    {
+                        //rimuovo l'oggetto dal database
+                        context.Customers.Remove(candidate);
+                        context.SaveChanges();
+
+                        //rimuovo l'oggetto dalla lista che andrò a ritornare nel VM e a qui associero proprietà
+                        list.Remove(c);
+                        
+                    }
+
+                    return list;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
 
                     throw;
