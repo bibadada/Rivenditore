@@ -24,7 +24,7 @@
         <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Margin="10">
             <Button Name="NuovoCliente" Content="Nuovo Cliente" Height="70"  FontSize="16" Click="NuovoCliente_Click"/>
         </StackPanel>
-        <DataGrid ItemsSource="{Binding ListaCustomers}" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
+        <DataGrid ItemsSource="{Binding ListaCustomers}" SelectedItem="{Binding CustomerSelezionato}" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"/>

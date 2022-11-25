@@ -23,6 +23,17 @@ namespace Rivenditore.ViewModels
             }
         }
 
+        private Customer _customerSelezionato;
+
+        public Customer CustomerSelezionato
+        {
+            get { return _customerSelezionato; }
+            set { _customerSelezionato = value;
+                NotifyPropretyChanged("CustomerSelezionato");
+            }
+        }
+
+
 
         #endregion
 
