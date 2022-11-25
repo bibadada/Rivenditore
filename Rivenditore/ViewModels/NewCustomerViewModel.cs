@@ -28,6 +28,12 @@ namespace Rivenditore.ViewModels
             SelectedCustomer = new Customer();
         }
 
+        public NewCustomerViewModel(Customer c)
+        {
+            SelectedCustomer = new Customer();
+            SelectedCustomer = c;
+        }
+
         internal void Salva()
         {
             if (SelectedCustomer.Name == null && SelectedCustomer.Surname == null)
