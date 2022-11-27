@@ -31,9 +31,7 @@ namespace Rivenditore.ViewModels
             set { _customerSelezionato = value;
                 NotifyPropretyChanged("CustomerSelezionato");
             }
-        }
-
-
+        }      
 
         #endregion
 
@@ -45,6 +43,8 @@ namespace Rivenditore.ViewModels
         private async Task Setup()
         {
             ListaCustomers = await CustomersController.GetAll();
+            
+
         }
 
         internal void NuovoCliente()
@@ -52,6 +52,12 @@ namespace Rivenditore.ViewModels
             NewCustomer newCustomer = new NewCustomer();
             newCustomer.ShowDialog();
             Setup();
+        }
+
+        internal void ModificaCliente()
+        {
+            NewCustomer newCustomer = new NewCustomer(this.CustomerSelezionato);
+            newCustomer.ShowDialog();
         }
     }
 }

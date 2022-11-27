@@ -33,5 +33,10 @@ namespace Rivenditore.Views
         {
             vm.NuovoCliente();
         }
+
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            vm.ModificaCliente();
+        }
     }
 }

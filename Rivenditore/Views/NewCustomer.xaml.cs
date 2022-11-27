@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Rivenditore.Models;
 using Rivenditore.ViewModels;
 
 namespace Rivenditore.Views
@@ -25,6 +26,13 @@ namespace Rivenditore.Views
         {
             InitializeComponent();
             vm = new NewCustomerViewModel();
+            DataContext = vm;
+        }
+
+        public NewCustomer(Customer c)
+        {
+            InitializeComponent();
+            vm = new NewCustomerViewModel(c);
             DataContext = vm;
         }
 
