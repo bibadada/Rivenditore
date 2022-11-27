@@ -27,7 +27,7 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Cognome:</Label>
-            <TextBox Text="{Binding SelectedCustomer.Surname}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+            <TextBox Text="{Binding SelectedCustomer.Surname, ValidatesOnDataErrors=True}" Height="30" FontSize="16" MaxLines="1"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
