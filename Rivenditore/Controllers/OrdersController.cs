@@ -26,5 +26,41 @@ namespace Rivenditore.Controllers
                 }
             }
         }
+
+        public List<Order> Delete(Order o, List<Order> list)
+        {
+            using(RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    List<OrderDetail> orderDetailsDaEliminare = new List<OrderDetail>();
+                    orderDetailsDaEliminare = context.OrderDetails.Where(od => od.IdOrder == o.Id).ToList();
+
+                    
+                    foreach (OrderDetail od in orderDetailsDaEliminare)
+                    {
+                        context.OrderDetails.Remove(od);
+                    }
+
+                    Order ordineDaEliminare = context.Orders.FirstOrDefault(order => order.Id == o.Id);
+
+                    if(ordineDaEliminare != null)
+                        context.Orders.Remove(ordineDaEliminare);
+
+                    context.SaveChanges();
+
+                    list.Remove(o);
+
+                    return list;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
     }
+
 }
