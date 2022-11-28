@@ -23,7 +23,7 @@
 
 
         <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Margin="10">
-            <Button  Content="Nuovo Cliente" Height="70"  FontSize="16"/>
+            <Button  Content="Nuovo Ordine" Height="70"  FontSize="16"/>
         </StackPanel>
         <DataGrid  ItemsSource="{Binding ListaOrders}" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
             <DataGrid.Columns>

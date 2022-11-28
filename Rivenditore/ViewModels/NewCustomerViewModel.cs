@@ -23,23 +23,37 @@ namespace Rivenditore.ViewModels
             }
         }
 
+        private string _labelTitolo;
+
+        public string LabelTitolo
+        {
+            get { return _labelTitolo; }
+            set { _labelTitolo = value;
+                NotifyPropretyChanged("LabelTitolo");
+            }
+        }
+
+
         public NewCustomerViewModel()
         {
             SelectedCustomer = new Customer();
+            LabelTitolo = "Nuovo Cliente";
         }
 
         public NewCustomerViewModel(Customer c)
         {
             SelectedCustomer = new Customer();
             SelectedCustomer = c;
+            LabelTitolo = "Modifica Cliente " + c.Id;
+
         }
 
         internal void Salva()
         {
-            if (SelectedCustomer.Name == null && SelectedCustomer.Surname == null)
-                MessageBox.Show("i campi Nome e Cognome devono essere compitlati");
-            else
+            if (LabelTitolo.Contains("Nuovo"))
                 CustomersController.Insert(SelectedCustomer);
+            else
+                CustomersController.Modify(SelectedCustomer);
         }
 
         #endregion
