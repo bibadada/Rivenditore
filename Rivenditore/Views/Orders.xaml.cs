@@ -28,5 +28,10 @@ namespace Rivenditore.Views
             vm = new OrdersViewModel();
             this.DataContext = vm;
         }
+
+        private void Elimina_Click(object sender, RoutedEventArgs e)
+        {
+            vm.Elimina();
+        }
     }
 }

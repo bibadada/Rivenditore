@@ -9,6 +9,12 @@
       Title="Orders">
 
     <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="ButtonEliminaTemplate" >
+                <Button x:Name="Elimina" Content="Elimina" Margin="2" Click="Elimina_Click" Background="Red" Foreground="White" />
+            </DataTemplate>
+        </Grid.Resources>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>
             <ColumnDefinition Width="150"/>
@@ -25,7 +31,7 @@
         <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Margin="10">
             <Button  Content="Nuovo Ordine" Height="70"  FontSize="16"/>
         </StackPanel>
-        <DataGrid  ItemsSource="{Binding ListaOrders}" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
+        <DataGrid  ItemsSource="{Binding ListaOrders}" SelectedItem="{Binding OrdineSelezionato}" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="IdCustomer" Binding="{Binding IdCustomer}"/>
@@ -33,6 +39,7 @@
                 <DataGridTextColumn Header="OrderDate" Binding="{Binding OrderDate}"/>
                 <DataGridTextColumn Header="DateOrederPlaced" Binding="{Binding DateOrederPlaced}"/>
                 <DataGridTextColumn Header="Notes" Binding="{Binding Notes}"/>
+                <DataGridTemplateColumn Header="Elimina Ordine" CellTemplate="{StaticResource ButtonEliminaTemplate}"/>
             </DataGrid.Columns>
 
         </DataGrid>

@@ -20,6 +20,17 @@ namespace Rivenditore.ViewModels
             }
         }
 
+        private Order _ordineSelezionato;
+
+        public Order OrdineSelezionato
+        {
+            get { return _ordineSelezionato; }
+            set { _ordineSelezionato = value;
+                NotifyPropretyChanged("OrdineSelezionato");
+            }
+        }
+
+
         public OrdersViewModel()
         {
             Setup();
@@ -30,5 +41,9 @@ namespace Rivenditore.ViewModels
             this.ListaOrders = await OrdersController.GetAll();
         }
 
+        internal void Elimina()
+        {
+            this.ListaOrders = OrdersController.Delete(OrdineSelezionato, ListaOrders);
+        }
     }
 }
