@@ -41,5 +41,10 @@ namespace Rivenditore.Views
             vm.Salva();
             this.Close();
         }
+
+        private void Annulla_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

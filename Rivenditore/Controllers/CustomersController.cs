@@ -77,5 +77,32 @@ namespace Rivenditore.Controllers
                 }
             }
         }
+
+        public static void Modify(Customer sc)
+        {
+            using (RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    Customer candidate = context.Customers.FirstOrDefault(u => u.Id == sc.Id);
+                    candidate.Name = sc.Name;
+                    candidate.Surname = sc.Surname;
+                    candidate.FiscalCode = sc.FiscalCode;
+                    candidate.Address = sc.Address;
+                    candidate.City = sc.City;
+                    candidate.Cap = sc.Cap;
+                    candidate.Mail = sc.Mail;
+                    candidate.Phone = sc.Phone;
+
+                    context.SaveChanges();
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
     }
 }

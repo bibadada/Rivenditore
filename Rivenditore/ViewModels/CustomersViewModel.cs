@@ -58,6 +58,7 @@ namespace Rivenditore.ViewModels
         {
             NewCustomer newCustomer = new NewCustomer(this.CustomerSelezionato);
             newCustomer.ShowDialog();
+            Setup();
         }
     }
 }
