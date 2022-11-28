@@ -38,5 +38,10 @@ namespace Rivenditore.Views
         {
             vm.ModificaCliente();
         }
+
+        private void Elimina_Click(object sender, RoutedEventArgs e)
+        {
+            vm.Elimina();
+        }
     }
 }

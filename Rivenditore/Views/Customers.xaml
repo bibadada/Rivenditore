@@ -9,6 +9,17 @@
       Title="Customers">
 
     <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="ButtonTemplate" >
+                <Button x:Name="Elimina" Content="Elimina" Margin="2" Click="Elimina_Click" Background="Red" Foreground="White" />
+            </DataTemplate>
+            <!--DataTemplate for the Published Date column when in edit mode. -->
+            <DataTemplate x:Key="EliminaModifica">
+               <!--forse todo-->
+            </DataTemplate>
+        </Grid.Resources>
+
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>
             <ColumnDefinition Width="150"/>
@@ -25,6 +36,7 @@
             <Button Name="NuovoCliente" Content="Nuovo Cliente" Height="70"  FontSize="16" Click="NuovoCliente_Click"/>
         </StackPanel>
         <DataGrid ItemsSource="{Binding ListaCustomers}" SelectedItem="{Binding CustomerSelezionato}" MouseDoubleClick="DataGrid_MouseDoubleClick" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
+            
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"/>
@@ -35,6 +47,7 @@
                 <DataGridTextColumn Header="Cap" Binding="{Binding Cap}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Mail}"/>
                 <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
+                <DataGridTemplateColumn Header="Elimina Cliente" CellTemplate="{StaticResource ButtonTemplate}"/>
             </DataGrid.Columns>
 
         </DataGrid>

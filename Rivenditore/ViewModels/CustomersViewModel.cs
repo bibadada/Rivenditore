@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Rivenditore.Models;
 using Rivenditore.Controllers;
 using Rivenditore.Views;
+using System.Windows;
 
 namespace Rivenditore.ViewModels
 {
@@ -51,6 +52,19 @@ namespace Rivenditore.ViewModels
         {
             NewCustomer newCustomer = new NewCustomer();
             newCustomer.ShowDialog();
+            Setup();
+        }
+
+        internal void Elimina()
+        {
+            try
+            {
+                this.ListaCustomers = CustomersController.Delete(CustomerSelezionato, ListaCustomers);
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                MessageBox.Show("Non si può eliminare un cliente con ordini");
+            }
             Setup();
         }
 
