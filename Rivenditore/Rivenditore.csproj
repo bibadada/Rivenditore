@@ -73,6 +73,7 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerExtension.cs" />
     <Compile Include="Models\DatabaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

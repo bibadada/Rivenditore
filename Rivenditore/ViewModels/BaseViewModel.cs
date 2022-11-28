@@ -10,28 +10,35 @@ namespace Rivenditore.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged, IDataErrorInfo
     {
+
+        public string Error => throw new NotImplementedException();
+        public string this[string columnName]
+        {
+            get
+            {
+                ValidationContext valContext = new ValidationContext(this) { MemberName = columnName };
+                List<ValidationResult> ListaErrori = new List<ValidationResult>();
+
+                if (Validator.TryValidateProperty(
+
+                    GetType().GetProperty(columnName).GetValue(this),
+                    valContext,
+                    ListaErrori
+                    )) return "";
+
+                return ListaErrori.First().ErrorMessage;
+                
+            }
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void NotifyPropretyChanged(string p)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
         }
 
-        public string this[string columnName] => throw new NotImplementedException();
 
-        public string Error { get 
-            {
-                ValidationContext ValCon = new ValidationContext(this) { MemberName = columnName };
-                List<ValidationResult> ListaErrori = new List<ValidationResult>();
-
-                if (Validator.TryValidateProperty(
-                    GetType().GetProperty(columnName).GetValue(this),
-                    ValCon,
-                    ListaErrori
-                    ))
-                    return "";
-                return ListaErrori.First().ErrorMessage;
-                
-            } 
-        }
+        
     }
 }

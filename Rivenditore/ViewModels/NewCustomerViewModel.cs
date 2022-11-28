@@ -22,6 +22,7 @@ namespace Rivenditore.ViewModels
                 NotifyPropretyChanged("SelectedCustomer");
             }
         }
+        #endregion
 
         public NewCustomerViewModel()
         {
@@ -42,6 +43,5 @@ namespace Rivenditore.ViewModels
                 CustomersController.Insert(SelectedCustomer);
         }
 
-        #endregion
     }
 }

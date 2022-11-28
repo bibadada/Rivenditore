@@ -6,6 +6,37 @@
         xmlns:local="clr-namespace:Rivenditore.Views"
         mc:Ignorable="d"
         Title="NewCustomer" Height="540" Width="820" MinWidth="820" MinHeight="534">
+
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <Border BorderThickness="1" BorderBrush="DarkRed">
+                                <StackPanel>
+                                    <AdornedElementPlaceholder
+                        x:Name="errorControl" />
+                                </StackPanel>
+                            </Border>
+                            <TextBlock Text="{Binding AdornedElement.ToolTip
+                , ElementName=errorControl}" Foreground="Red" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="BorderBrush" Value="Red" />
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="ToolTip"
+        Value="{Binding RelativeSource={RelativeSource Self}
+            , Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -27,7 +58,7 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Cognome:</Label>
-            <TextBox Text="{Binding SelectedCustomer.Surname, ValidatesOnDataErrors=True}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+            <TextBox Text="{Binding SelectedCustomer.Surname, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="30" FontSize="16" MaxLines="1"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
