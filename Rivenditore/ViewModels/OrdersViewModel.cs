@@ -44,6 +44,7 @@ namespace Rivenditore.ViewModels
         internal void Elimina()
         {
             this.ListaOrders = OrdersController.Delete(OrdineSelezionato, ListaOrders);
+            Setup();
         }
     }
 }

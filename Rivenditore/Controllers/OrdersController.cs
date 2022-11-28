@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace Rivenditore.Controllers
 {
-    class OrdersController
+    public static class OrdersController
     {
 
         public async static Task<List<Order>> GetAll()
@@ -27,7 +27,7 @@ namespace Rivenditore.Controllers
             }
         }
 
-        public List<Order> Delete(Order o, List<Order> list)
+        public static List<Order> Delete(Order o, List<Order> list)
         {
             using(RivenditoreEntities context = new RivenditoreEntities())
             {
