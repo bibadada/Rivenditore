@@ -4,14 +4,22 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Rivenditore.Views"
+      xmlns:h="clr-namespace:Rivenditore.Helpers"
       mc:Ignorable="d" 
       d:DesignHeight="780" d:DesignWidth="1200"
       Title="Orders">
+
+    <Page.Resources>
+        <h:OrderStatesConverter x:Key="OrderStatesConverter"/>
+    </Page.Resources>
 
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="ButtonEliminaTemplate" >
                 <Button x:Name="Elimina" Content="Elimina" Margin="2" Click="Elimina_Click" Background="Red" Foreground="White" />
+            </DataTemplate>
+            <DataTemplate x:Key="ButtonConfermaTemplate" >
+                <Button x:Name="Conferma" Content="Conferma" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}}" Margin="2" Background="Lime" Foreground="White" />
             </DataTemplate>
         </Grid.Resources>
 
@@ -40,6 +48,7 @@
                 <DataGridTextColumn Header="OrderDate" Binding="{Binding OrderDate}"/>
                 <DataGridTextColumn Header="DateOrederPlaced" Binding="{Binding DateOrederPlaced}"/>
                 <DataGridTextColumn Header="Notes" Binding="{Binding Notes}"/>
+                <DataGridTemplateColumn Header="Conferma Ordine" CellTemplate="{StaticResource ButtonConfermaTemplate}"/>
                 <DataGridTemplateColumn Header="Elimina Ordine" CellTemplate="{StaticResource ButtonEliminaTemplate}"/>
             </DataGrid.Columns>
 
