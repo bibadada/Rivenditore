@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Rivenditore.Models;
 
 namespace Rivenditore.ViewModels
 {
@@ -16,7 +17,7 @@ namespace Rivenditore.ViewModels
         {
             get
             {
-                ValidationContext valContext = new ValidationContext(this) { MemberName = columnName };
+                ValidationContext valContext = new ValidationContext(new CustomerExtension()) { MemberName = columnName };
                 List<ValidationResult> ListaErrori = new List<ValidationResult>();
 
                 if (Validator.TryValidateProperty(
