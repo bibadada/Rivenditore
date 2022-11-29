@@ -51,7 +51,7 @@
         <Label Content="{Binding LabelTitolo}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="10"  ></Label>
         <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Nome:</Label>
-            <TextBox Text="{Binding SelectedCustomer.Name}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+            <TextBox Text="{Binding SelectedCustomer.Name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="30" FontSize="16" MaxLines="1"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
@@ -61,33 +61,33 @@
 
         <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Codice Fiscale</Label>
-            <TextBox Text="{Binding SelectedCustomer.FiscalCode}" Height="30" FontSize="16" MaxLines="1" IsEnabled="{Binding IdEnabled}"/>
+            <TextBox Text="{Binding SelectedCustomer.FiscalCode, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="30" FontSize="16" MaxLines="1" IsEnabled="{Binding IdEnabled}"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Email:</Label>
-            <TextBox Text="{Binding SelectedCustomer.Mail}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+            <TextBox Text="{Binding SelectedCustomer.Mail, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="30" FontSize="16" MaxLines="1"></TextBox>
         </StackPanel>
 
 
         <StackPanel Grid.Row="3" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Numero di telefono:</Label>
-            <TextBox Text="{Binding SelectedCustomer.Phone}" Height="30" FontSize="16"></TextBox>
+            <TextBox Text="{Binding SelectedCustomer.Phone, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="30" FontSize="16"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Indirizzo:</Label>
-            <TextBox Text="{Binding SelectedCustomer.Address}" Height="30" FontSize="16" ></TextBox>
+            <TextBox Text="{Binding SelectedCustomer.Address, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="30" FontSize="16" ></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Città:</Label>
-            <TextBox Text="{Binding SelectedCustomer.City}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+            <TextBox Text="{Binding SelectedCustomer.City, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="30" FontSize="16" MaxLines="1"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Cap:</Label>
-            <TextBox Text="{Binding SelectedCustomer.Cap}" Height="30" FontSize="16" MaxLines="1"></TextBox>
+            <TextBox Text="{Binding SelectedCustomer.Cap, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="30" FontSize="16" MaxLines="1"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
