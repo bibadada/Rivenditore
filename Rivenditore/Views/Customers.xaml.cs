@@ -43,5 +43,15 @@ namespace Rivenditore.Views
         {
             vm.Elimina();
         }
+
+        private void ModificaToolTip_Click(object sender, RoutedEventArgs e)
+        {
+            vm.ModificaCliente();
+        }
+
+        private void EliminaToolTip_Click(object sender, RoutedEventArgs e)
+        {
+            vm.Elimina();
+        }
     }
 }
