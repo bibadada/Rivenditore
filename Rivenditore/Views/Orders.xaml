@@ -32,6 +32,7 @@
             <Button  Content="Nuovo Ordine" Height="70"  FontSize="16"/>
         </StackPanel>
         <DataGrid  ItemsSource="{Binding ListaOrders}" SelectedItem="{Binding OrdineSelezionato}" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
+            
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="IdCustomer" Binding="{Binding IdCustomer}"/>

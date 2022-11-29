@@ -36,7 +36,14 @@
             <Button Name="NuovoCliente" Content="Nuovo Cliente" Height="70"  FontSize="16" Click="NuovoCliente_Click"/>
         </StackPanel>
         <DataGrid ItemsSource="{Binding ListaCustomers}" SelectedItem="{Binding CustomerSelezionato}" MouseDoubleClick="DataGrid_MouseDoubleClick" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
-            
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                  
+                     <MenuItem x:Name="ModificaToolTip" Header="Modifica Cliente" Click="ModificaToolTip_Click"/>
+                     <MenuItem x:Name="EliminaToolTip"  Header="Elimina Cliente" Click="EliminaToolTip_Click"/>
+                   
+                </ContextMenu>
+            </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"/>
