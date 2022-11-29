@@ -11,26 +11,36 @@ namespace Rivenditore.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged, IDataErrorInfo
     {
+        Dictionary<string, string> Errors/* = new Dictionary<string, string>()*/;
+        4
 
         public string Error => throw new NotImplementedException();
         public string this[string columnName]
         {
             get
             {
+                
+                string ErrorMsg = "";
+
                 ValidationContext valContext = new ValidationContext(new CustomerExtension()) { MemberName = columnName };
                 List<ValidationResult> ListaErrori = new List<ValidationResult>();
 
-                if (Validator.TryValidateProperty(
+                if (!Validator.TryValidateProperty(
 
                     GetType().GetProperty(columnName).GetValue(this),
                     valContext,
                     ListaErrori
-                    )) return "";
+                    )) ErrorMsg = ListaErrori.First().ErrorMessage;
 
-                return ListaErrori.First().ErrorMessage;
+                if (Errors == null) Errors = new Dictionary<string, string>();
+
+                if(ErrorMsg != "")
+                Errors.Add(columnName, ErrorMsg);
+                
                 
             }
         }
+        //to do proporietà bool IsValid con solo il get che dice se ci sono errori
 
 
         public event PropertyChangedEventHandler PropertyChanged;
