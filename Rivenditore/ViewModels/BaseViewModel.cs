@@ -12,7 +12,7 @@ namespace Rivenditore.ViewModels
     public class BaseViewModel : INotifyPropertyChanged, IDataErrorInfo
     {
         Dictionary<string, string> Errors/* = new Dictionary<string, string>()*/;
-        4
+        
 
         public string Error => throw new NotImplementedException();
         public string this[string columnName]
