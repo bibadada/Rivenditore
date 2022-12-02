@@ -53,7 +53,15 @@ namespace Rivenditore.ViewModels
         {
             get
             {
-                if (Errors.ContainsKey("Name") || Errors["Name"] != "")
+                if (Errors["Name"] != "" ||
+                    Errors["Surname"] != "" ||
+                    Errors["FiscalCode"] != "" ||
+                    Errors["Address"] != "" ||
+                    Errors["City"] != "" ||
+                    Errors["Cap"] != "" ||
+                    Errors["Mail"] != "" ||
+                    Errors["Phone"] != ""
+                    )
                     return false;
                 return true;
             }
