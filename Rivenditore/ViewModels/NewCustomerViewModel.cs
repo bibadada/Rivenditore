@@ -22,23 +22,35 @@ namespace Rivenditore.ViewModels
                 NotifyPropretyChanged("SelectedCustomer");
             }
         }
-        #endregion
+
+
 
         private string _labelTitolo;
 
         public string LabelTitolo
         {
             get { return _labelTitolo; }
-            set { _labelTitolo = value;
+            set
+            {
+                _labelTitolo = value;
                 NotifyPropretyChanged("LabelTitolo");
             }
         }
+
+        
+
+        
+
+        #endregion
+
+
 
 
         public NewCustomerViewModel()
         {
             SelectedCustomer = new Customer();
             LabelTitolo = "Nuovo Cliente";
+            
         }
 
         public NewCustomerViewModel(Customer c)
@@ -49,12 +61,26 @@ namespace Rivenditore.ViewModels
 
         }
 
-        internal void Salva()
+
+        internal bool Salva()
         {
             if (LabelTitolo.Contains("Nuovo"))
-                CustomersController.Insert(SelectedCustomer);
+            {
+                if (!BaseViewModel.IsValid)
+                {
+                    MessageBox.Show("salvataggio non possibile");
+                    return false;
+                    
+                }
+                    
+                else
+                    CustomersController.Insert(SelectedCustomer);
+            }
             else
                 CustomersController.Modify(SelectedCustomer);
+
+            return true;
+                
         }
 
     }
