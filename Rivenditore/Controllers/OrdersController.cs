@@ -29,14 +29,14 @@ namespace Rivenditore.Controllers
 
         public static List<Order> Delete(Order o, List<Order> list)
         {
-            using(RivenditoreEntities context = new RivenditoreEntities())
+            using (RivenditoreEntities context = new RivenditoreEntities())
             {
                 try
                 {
                     List<OrderDetail> orderDetailsDaEliminare = new List<OrderDetail>();
                     orderDetailsDaEliminare = context.OrderDetails.Where(od => od.IdOrder == o.Id).ToList();
 
-                    
+
                     foreach (OrderDetail od in orderDetailsDaEliminare)
                     {
                         context.OrderDetails.Remove(od);
@@ -44,7 +44,7 @@ namespace Rivenditore.Controllers
 
                     Order ordineDaEliminare = context.Orders.FirstOrDefault(order => order.Id == o.Id);
 
-                    if(ordineDaEliminare != null)
+                    if (ordineDaEliminare != null)
                         context.Orders.Remove(ordineDaEliminare);
 
                     context.SaveChanges();
@@ -61,6 +61,55 @@ namespace Rivenditore.Controllers
             }
         }
 
-    }
 
+        //metodo che modifica lo stato di un ordine a confermato
+        public static void ConfirmOrderState(int id)
+        {
+            using (RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    Order candidate = context.Orders.FirstOrDefault(o => o.Id == id);
+                    if (candidate != null)
+                    {
+                        candidate.IdOrderStates = 20;
+                        context.SaveChanges();
+                    }
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+
+        }
+
+        //metodo che modifica lo stato di un ordine a confermato
+        public static void ConfirmOrderState(Order order)
+        {
+            using (RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    Order candidate = context.Orders.FirstOrDefault(o => o.Id == order.Id);
+                    if (candidate != null)
+                    {
+                        candidate.IdOrderStates = 20;
+                        context.SaveChanges();
+                    }
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+
+        }
+
+
+    }
 }

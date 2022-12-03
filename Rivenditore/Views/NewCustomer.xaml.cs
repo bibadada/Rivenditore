@@ -38,8 +38,9 @@ namespace Rivenditore.Views
 
         private void Salva_Click(object sender, RoutedEventArgs e)
         {
-            vm.Salva();
-            this.Close();
+            if(vm.Salva())
+                this.Close();
+
         }
 
         private void Annulla_Click(object sender, RoutedEventArgs e)

@@ -7,7 +7,7 @@
 
 
 
-        <Style x:Key="TitleLable" TargetType="Label">
+        <Style x:Key="TitleLable1" TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="40"/>
@@ -16,6 +16,16 @@
 
         </Style>
 
+        <Style x:Key="TitleLable2" TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="left"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        
+        
+        
+        
         <Style x:Key="MainMenuButton" TargetType="Button">
             <Setter Property="Margin" Value="50"/>
             <Setter Property="FontSize" Value="25"/>

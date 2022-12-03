@@ -19,7 +19,7 @@
             <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource TitleLable}" >Articoli</Label>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource TitleLable1}" >Articoli</Label>
 
 
 
