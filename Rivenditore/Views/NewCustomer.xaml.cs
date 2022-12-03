@@ -47,5 +47,10 @@ namespace Rivenditore.Views
         {
             this.Close();
         }
+
+        private void Window_MouseMove(object sender, MouseEventArgs e)
+        {
+            vm.CheckSalva();
+        }
     }
 }
