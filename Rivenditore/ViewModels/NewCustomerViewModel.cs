@@ -37,9 +37,19 @@ namespace Rivenditore.ViewModels
             }
         }
 
-        
+        private bool _salvaEnabled;
 
-        
+        public bool SalvaEnabled
+        {
+            get { return _salvaEnabled; }
+            set { _salvaEnabled = value;
+                NotifyPropretyChanged("SalvaEnabled");
+            }
+        }
+
+
+
+
 
         #endregion
 
@@ -66,6 +76,7 @@ namespace Rivenditore.ViewModels
         {
             if (LabelTitolo.Contains("Nuovo"))
             {
+                /*
                 if (!BaseViewModel.IsValid)
                 {
                     MessageBox.Show("salvataggio non possibile");
@@ -73,7 +84,7 @@ namespace Rivenditore.ViewModels
                     
                 }
                     
-                else
+                else*/
                     CustomersController.Insert(SelectedCustomer);
             }
             else
@@ -83,5 +94,9 @@ namespace Rivenditore.ViewModels
                 
         }
 
+        internal void CheckSalva()
+        {
+            SalvaEnabled = IsValid;
+        }
     }
 }
