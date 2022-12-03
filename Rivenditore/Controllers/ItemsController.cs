@@ -27,5 +27,22 @@ namespace Rivenditore.Controllers
             }
         }
 
+        public async static Task<List<int>> GetAllIds()
+        {
+            using (RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    List<int> retVal = await context.Items.Select(select => select.Id).ToListAsync();
+                    return retVal;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
     }
 }

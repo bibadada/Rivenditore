@@ -21,6 +21,7 @@
             <Setter Property="HorizontalAlignment" Value="left"/>
             <Setter Property="FontSize" Value="40"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="50 0 0 0"/>
         </Style>
         
         
