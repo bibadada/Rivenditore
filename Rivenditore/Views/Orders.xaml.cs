@@ -33,5 +33,10 @@ namespace Rivenditore.Views
         {
             vm.Elimina();
         }
+
+        private void NuovoOrdine_Click(object sender, RoutedEventArgs e)
+        {
+            vm.NuovoOrdine();
+        }
     }
 }

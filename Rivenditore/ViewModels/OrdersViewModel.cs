@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Rivenditore.Models;
 using Rivenditore.Controllers;
+using Rivenditore.Views;
 
 namespace Rivenditore.ViewModels
 {
@@ -39,6 +40,12 @@ namespace Rivenditore.ViewModels
         public async Task Setup()
         {
             this.ListaOrders = await OrdersController.GetAll();
+        }
+
+        internal void NuovoOrdine()
+        {
+            NewOrder newOrder = new NewOrder();
+            newOrder.ShowDialog();
         }
 
         internal void Elimina()

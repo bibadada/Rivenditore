@@ -16,7 +16,7 @@
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="ButtonEliminaTemplate" >
-                <Button x:Name="Elimina" Content="Elimina" Margin="2" Click="Elimina_Click" Background="Red" Foreground="White" />
+                <Button x:Name="Elimina" Content="Elimina" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}}" Margin="2" Click="Elimina_Click" Background="Red" Foreground="White" />
             </DataTemplate>
             <DataTemplate x:Key="ButtonConfermaTemplate" >
                 <Button x:Name="Conferma" Content="Conferma" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}}" Margin="2" Background="Lime" Foreground="White" />
@@ -37,7 +37,7 @@
 
 
         <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Margin="10">
-            <Button  Content="Nuovo Ordine" Height="70"  FontSize="16"/>
+            <Button Name="NuovoOrdine" Content="Nuovo Ordine" Height="70"  FontSize="16" Click="NuovoOrdine_Click"/>
         </StackPanel>
         <DataGrid  ItemsSource="{Binding ListaOrders}" SelectedItem="{Binding OrdineSelezionato}" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
             
