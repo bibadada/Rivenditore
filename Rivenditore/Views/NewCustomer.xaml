@@ -48,7 +48,9 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Content="{Binding LabelTitolo}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="10"  ></Label>
+        
+        
+<Label Content="{Binding LabelTitolo}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="10"  ></Label>
         <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16" FontWeight="Bold">Nome:</Label>
             <TextBox Text="{Binding SelectedCustomer.Name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="30" FontSize="16" MaxLines="1"></TextBox>
