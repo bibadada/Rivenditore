@@ -38,5 +38,10 @@ namespace Rivenditore.Views
         {
             vm.NuovoOrdine();
         }
+
+        private void Conferma_Click(object sender, RoutedEventArgs e)
+        {
+            vm.ConfermaOrdine();
+        }
     }
 }

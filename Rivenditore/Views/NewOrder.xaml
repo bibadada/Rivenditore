@@ -20,23 +20,32 @@
             <RowDefinition/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource TitleLable}">Dettaglio Ordine</Label>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >Dettaglio Ordine</Label>
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Cliente:</Label>
-            <ComboBox Height="35"/>
+            <ComboBox Height="35" ItemsSource="{Binding ListaCustomer}"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"  VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Note Ordine:</Label>
             <TextBox Height="35" />
         </StackPanel>
-        <!--<StackPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">-->
+        <StackPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Grid.Row="5" Grid.Column="3" Name="Invio"  Content="Invio" Width="100" Height="30" Margin="10" FontSize="14" ></Button>
             <Button Grid.Row="5" Grid.Column="4" Name="Annulla" Content="Annulla" Width="100" Height="30" Margin="10" FontSize="14" ></Button>
-        <!--</StackPanel>-->
+        </StackPanel>
         
-        <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Margin="10" >
-            
-            
+        <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding OrderDetails}" >
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridComboBoxColumn Header="Prodotto" ItemsSource="{Binding ListaItem}" />
+                <DataGridTextColumn Header="Quantità" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="Prezzo Singolo" Binding="{Binding SinglePrice}"/>
+            </DataGrid.Columns>
+
         </DataGrid>
         
 

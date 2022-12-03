@@ -48,6 +48,13 @@ namespace Rivenditore.ViewModels
             newOrder.ShowDialog();
         }
 
+        internal void ConfermaOrdine()
+        {
+            OrdersController.ConfirmOrderState(OrdineSelezionato);
+            Setup();
+
+        }
+
         internal void Elimina()
         {
             this.ListaOrders = OrdersController.Delete(OrdineSelezionato, ListaOrders);

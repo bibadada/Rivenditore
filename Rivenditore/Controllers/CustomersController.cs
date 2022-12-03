@@ -29,6 +29,23 @@ namespace Rivenditore.Controllers
 
         }
 
+        public async static Task<List<int>> GetAllIds()
+        {
+            using (RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    List<int> retVal = await context.Customers.Select(select => select.Id).ToListAsync();
+                    return retVal;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
         public static void Insert(Customer c)
         {
             using(RivenditoreEntities context = new RivenditoreEntities())
