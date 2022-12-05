@@ -50,8 +50,8 @@ namespace Rivenditore.ViewModels
 
         private async Task Setup()
         {
-            ListaCustomer = await CustomersController.GetAllIds();
-            ListaItem = await ItemsController.GetAllIds();
+            //ListaCustomer = await CustomersController.GetAllIds();
+            //ListaItem = await ItemsController.GetAllIds();
         }
 
 

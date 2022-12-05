@@ -72,35 +72,35 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Helpers\OrderStatesConverter.cs" />
     <Compile Include="Models\Customer.cs">
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
+      <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomerExtension.cs" />
-    <Compile Include="Models\DatabaseModel.Context.cs">
+    <Compile Include="Models\DatabaseRivenditore.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseModel.Context.tt</DependentUpon>
+      <DependentUpon>DatabaseRivenditore.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DatabaseModel.cs">
+    <Compile Include="Models\DatabaseRivenditore.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
+      <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DatabaseModel.Designer.cs">
+    <Compile Include="Models\DatabaseRivenditore.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+      <DependentUpon>DatabaseRivenditore.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Item.cs">
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
+      <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs">
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
+      <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderDetail.cs">
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
+      <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderState.cs">
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
+      <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
@@ -183,12 +183,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\DatabaseModel.edmx">
+    <EntityDeploy Include="Models\DatabaseRivenditore.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DatabaseModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DatabaseRivenditore.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\DatabaseModel.edmx.diagram">
-      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+    <None Include="Models\DatabaseRivenditore.edmx.diagram">
+      <DependentUpon>DatabaseRivenditore.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -199,17 +199,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Models\DatabaseModel.Context.tt">
+    <Content Include="Models\DatabaseRivenditore.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DatabaseModel.Context.cs</LastGenOutput>
-      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+      <DependentUpon>DatabaseRivenditore.edmx</DependentUpon>
+      <LastGenOutput>DatabaseRivenditore.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DatabaseModel.tt">
+    <Content Include="Models\DatabaseRivenditore.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DatabaseModel.edmx</DependentUpon>
-      <LastGenOutput>DatabaseModel.cs</LastGenOutput>
+      <DependentUpon>DatabaseRivenditore.edmx</DependentUpon>
+      <LastGenOutput>DatabaseRivenditore.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
