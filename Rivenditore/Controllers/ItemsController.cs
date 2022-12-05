@@ -27,14 +27,13 @@ namespace Rivenditore.Controllers
             }
         }
 
-        public async static Task<List<int>> GetAllIds()
+        public static double? GetItemPriceById(int id)
         {
-            using (RivenditoreEntities context = new RivenditoreEntities())
+            using(RivenditoreEntities context = new RivenditoreEntities())
             {
                 try
                 {
-                    List<int> retVal = await context.Items.Select(select => select.Id).ToListAsync();
-                    return retVal;
+                    return context.Items.FirstOrDefault(i => i.Id == id).Price;
                 }
                 catch (Exception)
                 {

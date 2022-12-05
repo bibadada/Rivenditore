@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RivenditoreContext.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="RivenditoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="Id" />
@@ -36,8 +36,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdCustomer" Type="int" />
-          <Property Name="IdOrderStates" Type="int" />
+          <Property Name="IdCustomer" Type="int" Nullable="false" />
+          <Property Name="IdOrderStates" Type="int" Nullable="false" />
           <Property Name="OrderDate" Type="date" Nullable="false" />
           <Property Name="DateOrederPlaced" Type="date" />
           <Property Name="Notes" Type="varchar" MaxLength="5000" />
@@ -59,8 +59,8 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Order__IdCustome__3D5E1FD2">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+        <Association Name="FK__Order__IdCustome__17036CC0">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
@@ -71,8 +71,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Order__IdOrderSt__3E52440B">
-          <End Role="OrderStates" Type="Self.OrderStates" Multiplicity="0..1" />
+        <Association Name="FK__Order__IdOrderSt__17F790F9">
+          <End Role="OrderStates" Type="Self.OrderStates" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OrderStates">
@@ -83,7 +83,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__IdIte__4222D4EF">
+        <Association Name="FK__OrderDeta__IdIte__1BC821DD">
           <End Role="Items" Type="Self.Items" Multiplicity="0..1" />
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -95,7 +95,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__IdOrd__412EB0B6">
+        <Association Name="FK__OrderDeta__IdOrd__1AD3FDA4">
           <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -107,25 +107,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="RivenditoreContextStoreContainer">
+        <EntityContainer Name="RivenditoreModelStoreContainer">
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderStates" EntityType="Self.OrderStates" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Order__IdCustome__3D5E1FD2" Association="Self.FK__Order__IdCustome__3D5E1FD2">
+          <AssociationSet Name="FK__Order__IdCustome__17036CC0" Association="Self.FK__Order__IdCustome__17036CC0">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order__IdOrderSt__3E52440B" Association="Self.FK__Order__IdOrderSt__3E52440B">
+          <AssociationSet Name="FK__Order__IdOrderSt__17F790F9" Association="Self.FK__Order__IdOrderSt__17F790F9">
             <End Role="OrderStates" EntitySet="OrderStates" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__IdIte__4222D4EF" Association="Self.FK__OrderDeta__IdIte__4222D4EF">
+          <AssociationSet Name="FK__OrderDeta__IdIte__1BC821DD" Association="Self.FK__OrderDeta__IdIte__1BC821DD">
             <End Role="Items" EntitySet="Items" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__IdOrd__412EB0B6" Association="Self.FK__OrderDeta__IdOrd__412EB0B6">
+          <AssociationSet Name="FK__OrderDeta__IdOrd__1AD3FDA4" Association="Self.FK__OrderDeta__IdOrd__1AD3FDA4">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
@@ -134,7 +134,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="RivenditoreContext" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="RivenditoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="Id" />
@@ -148,7 +148,7 @@
           <Property Name="Cap" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
           <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Order__IdCustome__3D5E1FD2" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Order__IdCustome__17036CC0" FromRole="Customer" ToRole="Order" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -161,21 +161,21 @@
           <Property Name="Volume" Type="Double" />
           <Property Name="Price" Type="Double" />
           <Property Name="LeadTime" Type="Int32" />
-          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__IdIte__4222D4EF" FromRole="Items" ToRole="OrderDetails" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__IdIte__1BC821DD" FromRole="Items" ToRole="OrderDetails" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdCustomer" Type="Int32" />
-          <Property Name="IdOrderStates" Type="Int32" />
+          <Property Name="IdCustomer" Type="Int32" Nullable="false" />
+          <Property Name="IdOrderStates" Type="Int32" Nullable="false" />
           <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DateOrederPlaced" Type="DateTime" Precision="0" />
           <Property Name="Notes" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK__Order__IdCustome__3D5E1FD2" FromRole="Order" ToRole="Customer" />
-          <NavigationProperty Name="OrderState" Relationship="Self.FK__Order__IdOrderSt__3E52440B" FromRole="Order" ToRole="OrderStates" />
-          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__IdOrd__412EB0B6" FromRole="Order" ToRole="OrderDetails" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Order__IdCustome__17036CC0" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="OrderState" Relationship="Self.FK__Order__IdOrderSt__17F790F9" FromRole="Order" ToRole="OrderStates" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__IdOrd__1AD3FDA4" FromRole="Order" ToRole="OrderDetails" />
         </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
@@ -186,8 +186,8 @@
           <Property Name="IdItem" Type="Int32" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="SinglePrice" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Item" Relationship="Self.FK__OrderDeta__IdIte__4222D4EF" FromRole="OrderDetails" ToRole="Items" />
-          <NavigationProperty Name="Order" Relationship="Self.FK__OrderDeta__IdOrd__412EB0B6" FromRole="OrderDetails" ToRole="Order" />
+          <NavigationProperty Name="Item" Relationship="Self.FK__OrderDeta__IdIte__1BC821DD" FromRole="OrderDetails" ToRole="Items" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__OrderDeta__IdOrd__1AD3FDA4" FromRole="OrderDetails" ToRole="Order" />
         </EntityType>
         <EntityType Name="OrderState">
           <Key>
@@ -195,10 +195,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Order__IdOrderSt__3E52440B" FromRole="OrderStates" ToRole="Order" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Order__IdOrderSt__17F790F9" FromRole="OrderStates" ToRole="Order" />
         </EntityType>
-        <Association Name="FK__Order__IdCustome__3D5E1FD2">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+        <Association Name="FK__Order__IdCustome__17036CC0">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
@@ -209,7 +209,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__IdIte__4222D4EF">
+        <Association Name="FK__OrderDeta__IdIte__1BC821DD">
           <End Role="Items" Type="Self.Item" Multiplicity="0..1" />
           <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -221,8 +221,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Order__IdOrderSt__3E52440B">
-          <End Role="OrderStates" Type="Self.OrderState" Multiplicity="0..1" />
+        <Association Name="FK__Order__IdOrderSt__17F790F9">
+          <End Role="OrderStates" Type="Self.OrderState" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OrderStates">
@@ -233,7 +233,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__IdOrd__412EB0B6">
+        <Association Name="FK__OrderDeta__IdOrd__1AD3FDA4">
           <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
           <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -251,19 +251,19 @@
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
           <EntitySet Name="OrderStates" EntityType="Self.OrderState" />
-          <AssociationSet Name="FK__Order__IdCustome__3D5E1FD2" Association="Self.FK__Order__IdCustome__3D5E1FD2">
+          <AssociationSet Name="FK__Order__IdCustome__17036CC0" Association="Self.FK__Order__IdCustome__17036CC0">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__IdIte__4222D4EF" Association="Self.FK__OrderDeta__IdIte__4222D4EF">
+          <AssociationSet Name="FK__OrderDeta__IdIte__1BC821DD" Association="Self.FK__OrderDeta__IdIte__1BC821DD">
             <End Role="Items" EntitySet="Items" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order__IdOrderSt__3E52440B" Association="Self.FK__Order__IdOrderSt__3E52440B">
+          <AssociationSet Name="FK__Order__IdOrderSt__17F790F9" Association="Self.FK__Order__IdOrderSt__17F790F9">
             <End Role="OrderStates" EntitySet="OrderStates" />
             <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__IdOrd__412EB0B6" Association="Self.FK__OrderDeta__IdOrd__412EB0B6">
+          <AssociationSet Name="FK__OrderDeta__IdOrd__1AD3FDA4" Association="Self.FK__OrderDeta__IdOrd__1AD3FDA4">
             <End Role="Order" EntitySet="Orders" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
@@ -273,9 +273,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="RivenditoreContextStoreContainer" CdmEntityContainer="RivenditoreEntities">
+        <EntityContainerMapping StorageEntityContainer="RivenditoreModelStoreContainer" CdmEntityContainer="RivenditoreEntities">
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="RivenditoreContext.Customer">
+            <EntityTypeMapping TypeName="RivenditoreModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -290,7 +290,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Items">
-            <EntityTypeMapping TypeName="RivenditoreContext.Item">
+            <EntityTypeMapping TypeName="RivenditoreModel.Item">
               <MappingFragment StoreEntitySet="Items">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
@@ -303,7 +303,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="RivenditoreContext.Order">
+            <EntityTypeMapping TypeName="RivenditoreModel.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
@@ -315,7 +315,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderDetails">
-            <EntityTypeMapping TypeName="RivenditoreContext.OrderDetail">
+            <EntityTypeMapping TypeName="RivenditoreModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetails">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
@@ -326,7 +326,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderStates">
-            <EntityTypeMapping TypeName="RivenditoreContext.OrderState">
+            <EntityTypeMapping TypeName="RivenditoreModel.OrderState">
               <MappingFragment StoreEntitySet="OrderStates">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

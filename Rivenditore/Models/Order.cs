@@ -21,8 +21,8 @@ namespace Rivenditore.Models
         }
     
         public int Id { get; set; }
-        public Nullable<int> IdCustomer { get; set; }
-        public Nullable<int> IdOrderStates { get; set; }
+        public int IdCustomer { get; set; }
+        public int IdOrderStates { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DateOrederPlaced { get; set; }
         public string Notes { get; set; }
