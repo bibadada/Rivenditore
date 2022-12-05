@@ -109,6 +109,32 @@ namespace Rivenditore.Controllers
 
         }
 
+        public static void InsertOrder(int idCustomer, string note, List<OrderDetail> righeOrdine) {
+        
+            using(RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    context.Orders.Add(
+                    new Order
+                    {
+                        IdCustomer = idCustomer,
+                        IdOrderStates = 10,
+                        OrderDate = DateTime.Now,
+                        Notes = note,
+                        OrderDetails = righeOrdine
+                    });
+
+                    context.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
         
     }
 }
