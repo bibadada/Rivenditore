@@ -52,5 +52,11 @@ namespace Rivenditore.Views
         {
             vm.CheckSalva();
         }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Tab)
+                vm.CheckSalva();
+        }
     }
 }

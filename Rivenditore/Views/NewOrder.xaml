@@ -23,7 +23,7 @@
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >Dettaglio Ordine</Label>
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Cliente:</Label>
-            <ComboBox Height="35" ItemsSource="{Binding ListaCustomer}"/>
+            <ComboBox Height="35" ItemsSource="{Binding ListaCustomer}"  SelectedItem="{Binding SelectedCustomer}" DisplayMemberPath="GetNameSurname" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"  VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16">Note Ordine:</Label>
@@ -35,13 +35,28 @@
         </StackPanel>
         
         <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding OrderDetails}" >
-            <DataGrid.ContextMenu>
-                <ContextMenu>
-
-                </ContextMenu>
-            </DataGrid.ContextMenu>
+            
             <DataGrid.Columns>
-                <DataGridComboBoxColumn Header="Prodotto" ItemsSource="{Binding ListaItem}" />
+                <!--<DataGridComboBoxColumn Header="Prodotto"  ItemsSource="{Binding ListaItem}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValueBinding="{Binding IdItem}"/>-->
+                <DataGridComboBoxColumn 
+                    Header="Prodotto"
+                    Width="300"
+                    SelectedValueBinding="{Binding IdItem}" 
+                    DisplayMemberPath="Name" 
+                    SelectedValuePath="Id">
+
+                    <DataGridComboBoxColumn.ElementStyle>
+                        <Style TargetType="{x:Type ComboBox}">
+                            <Setter Property="ItemsSource" Value="{Binding Path=DataContext.ListaItem, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+                        </Style>
+                    </DataGridComboBoxColumn.ElementStyle>
+                    <DataGridComboBoxColumn.EditingElementStyle>
+                        <Style TargetType="{x:Type ComboBox}">
+                            <Setter Property="ItemsSource" Value="{Binding Path=DataContext.ListaItem, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+                        </Style>
+                    </DataGridComboBoxColumn.EditingElementStyle>
+                </DataGridComboBoxColumn>
+                
                 <DataGridTextColumn Header="Quantità" Binding="{Binding Quantity}"/>
                 <DataGridTextColumn Header="Prezzo Singolo" Binding="{Binding SinglePrice}"/>
             </DataGrid.Columns>

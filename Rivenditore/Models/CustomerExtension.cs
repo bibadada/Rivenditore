@@ -13,12 +13,20 @@ namespace Rivenditore.Models
     [MetadataTypeAttribute(typeof(CustomerExtension))]
     public partial class Customer : BaseViewModel
     {
+        private string getNameSurname;
+
+        public string GetNameSurname
+        {
+            get { return Name + " " + Surname; }
+        }
 
     }
 
     class CustomerExtension
     {
         public int Id { get; set; }
+
+
 
         [Required(ErrorMessage = "Campo Richiesto")]
         [StringLength(255, ErrorMessage = "il cognome deve essere minore di 255 caratteri")]

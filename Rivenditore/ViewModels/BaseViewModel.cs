@@ -11,7 +11,7 @@ namespace Rivenditore.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged, IDataErrorInfo
     {
-        private static Dictionary<string, string> Errors = new Dictionary<string, string>();
+        protected static Dictionary<string, string> Errors = new Dictionary<string, string>();
         
 
         public string Error => throw new NotImplementedException();
@@ -48,25 +48,6 @@ namespace Rivenditore.ViewModels
             }
         }
         
-        //to do proporietà bool IsValid con solo il get che dice se ci sono errori
-        public static bool IsValid
-        {
-            get
-            {
-                if (Errors["Name"] != "" ||
-                    Errors["Surname"] != "" ||
-                    Errors["FiscalCode"] != "" ||
-                    Errors["Address"] != "" ||
-                    Errors["City"] != "" ||
-                    Errors["Cap"] != "" ||
-                    Errors["Mail"] != "" ||
-                    Errors["Phone"] != ""
-                    )
-                    return false;
-                return true;
-            }
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
         protected void NotifyPropretyChanged(string p)
         {

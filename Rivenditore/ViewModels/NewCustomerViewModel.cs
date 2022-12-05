@@ -94,6 +94,25 @@ namespace Rivenditore.ViewModels
                 
         }
 
+        public static bool IsValid
+        {
+            get
+            {
+                if (Errors["Name"] != "" ||
+                    Errors["Surname"] != "" ||
+                    Errors["FiscalCode"] != "" ||
+                    Errors["Address"] != "" ||
+                    Errors["City"] != "" ||
+                    Errors["Cap"] != "" ||
+                    Errors["Mail"] != "" ||
+                    Errors["Phone"] != ""
+                    )
+                    return false;
+                return true;
+            }
+        }
+
+
         internal void CheckSalva()
         {
             SalvaEnabled = IsValid;

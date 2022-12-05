@@ -20,9 +20,9 @@ namespace Rivenditore.ViewModels
             }
         }
 
-        private List<int> _listaItem;
+        private List<Item> _listaItem;
 
-        public List<int> ListaItem
+        public List<Item> ListaItem
         {
             get { return _listaItem; }
             set { _listaItem = value;
@@ -30,15 +30,26 @@ namespace Rivenditore.ViewModels
             }
         }
 
-        private List<int> _listaCustomer;
+        private List<Customer> _listaCustomer;
 
-        public List<int> ListaCustomer
+        public List<Customer> ListaCustomer
         {
             get { return _listaCustomer; }
             set { _listaCustomer =  value;
                 NotifyPropretyChanged("ListaCustomer");
             }
         }
+
+        private Customer _selectedCustomer;
+
+        public Customer SelectedCustomer
+        {
+            get { return _selectedCustomer; }
+            set { _selectedCustomer = value;
+                NotifyPropretyChanged("SelectedCustomer");
+            }
+        }
+
 
 
         public NewOrderViewModel()
@@ -50,8 +61,8 @@ namespace Rivenditore.ViewModels
 
         private async Task Setup()
         {
-            ListaCustomer = await CustomersController.GetAllIds();
-            ListaItem = await ItemsController.GetAllIds();
+            ListaCustomer = await CustomersController.GetAll();
+            ListaItem = await ItemsController.GetAll();
         }
 
 
