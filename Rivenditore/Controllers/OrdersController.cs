@@ -61,7 +61,6 @@ namespace Rivenditore.Controllers
             }
         }
 
-
         //metodo che modifica lo stato di un ordine a confermato
         public static void ConfirmOrderState(int id)
         {
@@ -110,6 +109,6 @@ namespace Rivenditore.Controllers
 
         }
 
-
+        
     }
 }
