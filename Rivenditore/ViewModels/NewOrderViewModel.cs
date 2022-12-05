@@ -51,7 +51,15 @@ namespace Rivenditore.ViewModels
             }
         }
 
+        private string _note;
 
+        public string Note
+        {
+            get { return _note; }
+            set { _note = value;
+                NotifyPropretyChanged("Note");
+            }
+        }
 
         public NewOrderViewModel()
         {
@@ -67,7 +75,7 @@ namespace Rivenditore.ViewModels
         }
         internal void Salva()
         {
-            OrdersController.Insert(SelectedCustomer.Id, "", OrderDetails);
+            OrdersController.InsertOrder(SelectedCustomer.Id, Note, OrderDetails);
         }
 
 

@@ -40,12 +40,14 @@ namespace Rivenditore.ViewModels
         public async Task Setup()
         {
             this.ListaOrders = await OrdersController.GetAll();
+
         }
 
         internal void NuovoOrdine()
         {
             NewOrder newOrder = new NewOrder();
             newOrder.ShowDialog();
+            Setup();
         }
 
         internal void ConfermaOrdine()

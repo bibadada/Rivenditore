@@ -31,7 +31,11 @@ namespace Rivenditore.Views
         private void Salva_Click(object sender, RoutedEventArgs e)
         {
             vm.Salva();
+            this.Close();
 
         }
+
+
+
     }
 }
