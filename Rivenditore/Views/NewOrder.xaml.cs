@@ -20,11 +20,18 @@ namespace Rivenditore.Views
     /// </summary>
     public partial class NewOrder : Window
     {
+        private NewOrderViewModel vm;
         public NewOrder()
         {
             InitializeComponent();
-            NewOrderViewModel vm = new NewOrderViewModel();
+            vm = new NewOrderViewModel();
             DataContext = vm;
+        }
+
+        private void Salva_Click(object sender, RoutedEventArgs e)
+        {
+            vm.Salva();
+
         }
     }
 }

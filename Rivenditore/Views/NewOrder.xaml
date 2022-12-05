@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="NewOrder" Height="600" Width="888">
     <Grid>
+            <Grid.Resources>
+                <DataTemplate x:Key="ButtonEliminaTemplate" >
+                    <Button x:Name="Elimina" Content="Elimina"  Margin="2" Background="Red" Foreground="White" />
+                </DataTemplate>
+                <DataTemplate x:Key="ButtonConfermaTemplate" >
+                <Button x:Name="Aggiungi" Content="Aggiungi Riga"  Margin="2"  Background="Lime" Foreground="White" />
+                </DataTemplate>
+            </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -30,12 +38,11 @@
             <TextBox Height="35" />
         </StackPanel>
         <StackPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Grid.Row="5" Grid.Column="3" Name="Invio"  Content="Invio" Width="100" Height="30" Margin="10" FontSize="14" ></Button>
+            <Button Grid.Row="5" Grid.Column="3" Name="Salva"  Content="Salva" Width="100" Height="30" Margin="10" FontSize="14"  Click="Salva_Click"></Button>
             <Button Grid.Row="5" Grid.Column="4" Name="Annulla" Content="Annulla" Width="100" Height="30" Margin="10" FontSize="14" ></Button>
         </StackPanel>
         
         <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding OrderDetails}" >
-            
             <DataGrid.Columns>
                 <!--<DataGridComboBoxColumn Header="Prodotto"  ItemsSource="{Binding ListaItem}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValueBinding="{Binding IdItem}"/>-->
                 <DataGridComboBoxColumn 
@@ -58,7 +65,8 @@
                 </DataGridComboBoxColumn>
                 
                 <DataGridTextColumn Header="Quantità" Binding="{Binding Quantity}"/>
-                <DataGridTextColumn Header="Prezzo Singolo" Binding="{Binding SinglePrice}"/>
+                <DataGridTextColumn Header="Prezzo Singolo" Binding="{Binding SinglePrice}" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Conferma" CellTemplate="{StaticResource ButtonConfermaTemplate}"/>
             </DataGrid.Columns>
 
         </DataGrid>

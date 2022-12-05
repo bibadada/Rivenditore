@@ -40,6 +40,7 @@ namespace Rivenditore.ViewModels
             }
         }
 
+
         private Customer _selectedCustomer;
 
         public Customer SelectedCustomer
@@ -63,6 +64,10 @@ namespace Rivenditore.ViewModels
         {
             ListaCustomer = await CustomersController.GetAll();
             ListaItem = await ItemsController.GetAll();
+        }
+        internal void Salva()
+        {
+            OrdersController.Insert(SelectedCustomer.Id, "", OrderDetails);
         }
 
 
