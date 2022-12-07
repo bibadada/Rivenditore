@@ -137,6 +137,26 @@ namespace Rivenditore.Controllers
             }
         }
 
+        public static void ModifyOrder(Order orderToModify, int idCustomer, string note, List<OrderDetail> righeOrdine)
+        {
+            using (RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    Order candidate = context.Orders.FirstOrDefault(o => o.Id == orderToModify.Id);
+                    candidate.IdCustomer = idCustomer;
+                    candidate.Notes = note;
+                    candidate.OrderDetails = righeOrdine;
+
+                    context.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
         public static List<OrderDetail> GetRowByOrder(Order order)
         {
             using(RivenditoreEntities context = new RivenditoreEntities())
@@ -153,7 +173,6 @@ namespace Rivenditore.Controllers
             }
         }
 
-        
 
         public static DateTime? CalculateDeliveryDate(Order order)
         {
