@@ -137,7 +137,7 @@ namespace Rivenditore.Controllers
             }
         }
 
-        public static void Modify(Order orderToModify, int idCustomer, string note, List<OrderDetail> righeOrdine)
+        public static void ModifyOrder(Order orderToModify, int idCustomer, string note, List<OrderDetail> righeOrdine)
         {
             using (RivenditoreEntities context = new RivenditoreEntities())
             {
