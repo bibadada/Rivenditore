@@ -16,7 +16,7 @@ namespace Rivenditore.Models
                 using(RivenditoreEntities context = new RivenditoreEntities())
                 {
                     var d1 = this.DateOrederPlaced;
-                    var d2 =context.OrderDetails.Max(m => m.Item.LeadTime);
+                    var d2 = context.OrderDetails.Where(w => w.IdOrder == Id).Max(m => m.Item.LeadTime);
 
                     if (d1 != null && d2 != null)
                     {
@@ -35,10 +35,17 @@ namespace Rivenditore.Models
 
         public double TotalImport
         {
-            get { return _totalImport; }
-            set { _totalImport = value; }
-        }
+            get
+            {
 
+                using (RivenditoreEntities context = new RivenditoreEntities())
+                {
+                    _totalImport = context.OrderDetails.Where(od => od.IdOrder == Id).Sum(od => od.SinglePrice);
+                    return _totalImport;
+                }
+
+            }
+        }
 
     }
 }

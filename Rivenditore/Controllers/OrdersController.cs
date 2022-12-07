@@ -17,7 +17,7 @@ namespace Rivenditore.Controllers
             {
                 try
                 {
-                    return await context.Orders.Include(o=> o.OrderDetails).ToListAsync();
+                    return await context.Orders.ToListAsync();
                 }
                 catch (Exception)
                 {
@@ -128,6 +128,22 @@ namespace Rivenditore.Controllers
                     });
 
                     context.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        public static List<OrderDetail> GetRowByOrder(Order order)
+        {
+            using(RivenditoreEntities context = new RivenditoreEntities)
+            {
+                try
+                {
+                    return context.OrderDetails.Where(od => od.IdOrder == order.Id).ToList();
                 }
                 catch (Exception)
                 {
