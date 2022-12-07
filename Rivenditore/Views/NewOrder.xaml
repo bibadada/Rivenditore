@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rivenditore.Views"
         mc:Ignorable="d"
-        Title="NewOrder" Height="600" Width="888">
+        Title="{Binding LabelTitolo}" Height="600" Width="888">
     <Grid>
             <Grid.Resources>
                 <DataTemplate x:Key="ButtonEliminaTemplate" >

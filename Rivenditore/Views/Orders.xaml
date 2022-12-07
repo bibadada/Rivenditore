@@ -21,6 +21,9 @@
             <DataTemplate x:Key="ButtonConfermaTemplate" >
                 <Button x:Name="Conferma" Content="Conferma" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}}" Margin="2" Click="Conferma_Click" Background="Lime" Foreground="White" />
             </DataTemplate>
+            <DataTemplate x:Key="ButtonModificaTemplate" >
+                <Button x:Name="Modifica" Content="Modifica" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}}" Margin="2" Click="Modifica_Click" Background="Orange" Foreground="White" />
+            </DataTemplate>
         </Grid.Resources>
 
         <Grid.ColumnDefinitions>
@@ -39,7 +42,9 @@
         <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Margin="10">
             <Button Name="NuovoOrdine" Content="Nuovo Ordine" Height="70"  FontSize="16" Click="NuovoOrdine_Click"/>
         </StackPanel>
-        <DataGrid  ItemsSource="{Binding ListaOrders}" SelectedItem="{Binding OrdineSelezionato}" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
+        <DataGrid Name="OrdiniDG" ItemsSource="{Binding ListaOrders}" SelectedItem="{Binding OrdineSelezionato}"
+                   AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" 
+                   IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
             
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
@@ -51,6 +56,7 @@
                 <DataGridTextColumn Header="Consegna Prevista" Binding="{Binding DeliveryDate, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn Header="Totale Ordine" Binding="{Binding TotalImport}"/>
                 <DataGridTemplateColumn Header="Conferma Ordine" CellTemplate="{StaticResource ButtonConfermaTemplate}"/>
+                <DataGridTemplateColumn Header="Modifica Ordine" CellTemplate="{StaticResource ButtonModificaTemplate}"/>
                 <DataGridTemplateColumn Header="Elimina Ordine" CellTemplate="{StaticResource ButtonEliminaTemplate}"/>
             </DataGrid.Columns>
 

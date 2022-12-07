@@ -57,6 +57,13 @@ namespace Rivenditore.ViewModels
             Setup();
         }
 
+        internal void ModificaOrdine()
+        {
+            NewOrder newOrder = new NewOrder(OrdineSelezionato);
+            newOrder.ShowDialog();
+            Setup();
+        }
+
         internal void Elimina()
         {
             this.ListaOrders = OrdersController.Delete(OrdineSelezionato, ListaOrders);

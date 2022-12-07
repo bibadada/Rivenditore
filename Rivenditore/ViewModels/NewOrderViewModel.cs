@@ -30,6 +30,17 @@ namespace Rivenditore.ViewModels
             }
         }
 
+        private string _labelTitolo;
+
+        public string LabelTitolo
+        {
+            get { return _labelTitolo; }
+            set { _labelTitolo = value;
+                NotifyPropretyChanged("LabelTitolo");
+            }
+        }
+
+
         private List<Customer> _listaCustomer;
 
         public List<Customer> ListaCustomer
@@ -64,8 +75,18 @@ namespace Rivenditore.ViewModels
         public NewOrderViewModel()
         {
             OrderDetails = new List<OrderDetail>();
+            LabelTitolo = "Nuovo Ordine";
             Setup();
 
+        }
+
+        public NewOrderViewModel(Order order)
+        {
+            OrderDetails = new List<OrderDetail>();
+            LabelTitolo = "Modifica Ordine";
+            //OrderDetails = Controllers...
+
+            Setup();
         }
 
         private async Task Setup()
@@ -75,7 +96,10 @@ namespace Rivenditore.ViewModels
         }
         internal void Salva()
         {
-            OrdersController.InsertOrder(SelectedCustomer.Id, Note, OrderDetails);
+            if(LabelTitolo.Contains("Nuovo"))
+                OrdersController.InsertOrder(SelectedCustomer.Id, Note, OrderDetails);
+            
+                //Else todo
         }
 
 
