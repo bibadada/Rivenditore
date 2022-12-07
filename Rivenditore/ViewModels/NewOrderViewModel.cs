@@ -84,8 +84,9 @@ namespace Rivenditore.ViewModels
         {
             OrderDetails = new List<OrderDetail>();
             LabelTitolo = "Modifica Ordine";
-            //OrderDetails = Controllers...
-
+            OrderDetails = OrdersController.GetRowByOrder(order);
+            //SelectedCustomer = order.Customer;
+            Note = order.Notes;
             Setup();
         }
 
