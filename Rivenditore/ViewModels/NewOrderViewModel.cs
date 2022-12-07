@@ -82,13 +82,16 @@ namespace Rivenditore.ViewModels
 
         public NewOrderViewModel(Order order)
         {
-            OrderDetails = new List<OrderDetail>();
-            LabelTitolo = "Modifica Ordine";
-            OrderDetails = OrdersController.GetRowByOrder(order);
-            //SelectedCustomer = order.Customer;
-            Note = order.Notes;
-            Setup();
+            Setup().ContinueWith(l => { 
+                OrderDetails = new List<OrderDetail>();
+                OrderDetails = OrdersController.GetRowByOrder(order);
+                LabelTitolo = "Modifica Ordine";
+                SelectedCustomer = ListaCustomer.FirstOrDefault(c => c.Id == order.IdCustomer); //CustomersController.GetCustomerByOrder(order);
+                Note = order.Notes;
+            });
         }
+
+
 
         private async Task Setup()
         {
