@@ -105,6 +105,22 @@ namespace Rivenditore.Controllers
             }
         }
 
+        public static Customer GetCustomerByOrder(Order o)
+        {
+            using (RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    return context.Customers.FirstOrDefault(c => c.Id == o.IdCustomer);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
 
     }
 }
