@@ -139,7 +139,7 @@ namespace Rivenditore.Controllers
 
         public static List<OrderDetail> GetRowByOrder(Order order)
         {
-            using(RivenditoreEntities context = new RivenditoreEntities)
+            using(RivenditoreEntities context = new RivenditoreEntities())
             {
                 try
                 {
