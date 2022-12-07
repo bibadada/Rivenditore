@@ -17,7 +17,7 @@ namespace Rivenditore.Controllers
             {
                 try
                 {
-                    return await context.Orders.ToListAsync();
+                    return await context.Orders.Include(o=> o.OrderDetails).ToListAsync();
                 }
                 catch (Exception)
                 {
@@ -137,6 +137,30 @@ namespace Rivenditore.Controllers
             }
         }
 
-        
+        public static DateTime? CalculateDeliveryDate(Order order)
+        {
+            using(RivenditoreEntities context = new RivenditoreEntities())
+            {
+                try
+                {
+                    var d1 = context.Orders.FirstOrDefault(o => o.Id == order.Id).DateOrederPlaced;
+                    var d2 = context.OrderDetails.Include(od => od.Item).Where(od => od.IdOrder == order.Id).Max(m => m.Item.LeadTime);
+
+                    if(d1 != null && d2 != null)
+                    {
+                        var v = (DateTime)d1;
+                        var v2 =  (double)d2;
+
+                        return v.AddDays(v2); 
+                    }
+                    return null;  
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
     }
 }

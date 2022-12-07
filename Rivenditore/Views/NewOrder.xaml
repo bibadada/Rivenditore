@@ -65,7 +65,7 @@
                 </DataGridComboBoxColumn>
                 
                 <DataGridTextColumn Header="Quantità" Binding="{Binding Quantity}"/>
-                <DataGridTextColumn Header="Prezzo Singolo" Binding="{Binding SinglePrice}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Prezzo Singolo" Binding="{Binding SinglePrice}" IsReadOnly="False"/>
                 <!--<DataGridTemplateColumn Header="Conferma" CellTemplate="{StaticResource ButtonConfermaTemplate}"/>-->
             </DataGrid.Columns>
 

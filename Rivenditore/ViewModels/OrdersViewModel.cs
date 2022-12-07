@@ -40,6 +40,7 @@ namespace Rivenditore.ViewModels
         public async Task Setup()
         {
             this.ListaOrders = await OrdersController.GetAll();
+            
 
         }
 
@@ -54,7 +55,6 @@ namespace Rivenditore.ViewModels
         {
             OrdersController.ConfirmOrderState(OrdineSelezionato);
             Setup();
-
         }
 
         internal void Elimina()

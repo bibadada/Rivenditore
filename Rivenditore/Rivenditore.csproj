@@ -99,6 +99,7 @@
     <Compile Include="Models\OrderDetail.cs">
       <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderExtension.cs" />
     <Compile Include="Models\OrderState.cs">
       <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
     </Compile>
