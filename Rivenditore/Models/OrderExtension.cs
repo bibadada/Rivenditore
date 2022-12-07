@@ -40,7 +40,7 @@ namespace Rivenditore.Models
 
                 using (RivenditoreEntities context = new RivenditoreEntities())
                 {
-                    _totalImport = context.OrderDetails.Where(od => od.IdOrder == Id).Sum(od => od.SinglePrice);
+                    _totalImport = context.OrderDetails.Where(od => od.IdOrder == Id).Sum(od => od.SinglePrice*od.Quantity);
                     return _totalImport;
                 }
 
