@@ -49,6 +49,7 @@
                 <DataGridTextColumn Header="Data Invio Ordine" Binding="{Binding DateOrederPlaced, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn Header="Note Ordine" Binding="{Binding Notes}"/>
                 <DataGridTextColumn Header="Consegna Prevista" Binding="{Binding TODO, StringFormat='dd/MM/yyyy'}"/>
+                <DataGridTextColumn Header="Totale Ordine" Binding="{Binding TODO}"/>
                 <DataGridTemplateColumn Header="Conferma Ordine" CellTemplate="{StaticResource ButtonConfermaTemplate}"/>
                 <DataGridTemplateColumn Header="Elimina Ordine" CellTemplate="{StaticResource ButtonEliminaTemplate}"/>
             </DataGrid.Columns>
