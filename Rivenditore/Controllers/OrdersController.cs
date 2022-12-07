@@ -72,6 +72,7 @@ namespace Rivenditore.Controllers
                     if (candidate != null)
                     {
                         candidate.IdOrderStates = 20;
+                        candidate.DateOrederPlaced = DateTime.Now;
                         context.SaveChanges();
                     }
 
