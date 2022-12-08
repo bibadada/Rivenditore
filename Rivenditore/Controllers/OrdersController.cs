@@ -143,21 +143,28 @@ namespace Rivenditore.Controllers
             {
                 try
                 {
-                    Order candidateO = context.Orders.FirstOrDefault(o => o.Id == orderToModify.Id);
+                    Order candidateO = context.Orders.Include(o => o.OrderDetails).FirstOrDefault(o => o.Id == orderToModify.Id);
                     candidateO.IdCustomer = idCustomer;
                     candidateO.Notes = note;
 
-                    List<OrderDetail> CandidateOd = context.OrderDetails.Where(od => od.IdOrder == candidateO.Id).ToList(); 
-                    if(CandidateOd != null && CandidateOd.Count() == righeOrdine.Count)
+                    if (candidateO.OrderDetails != null && candidateO.OrderDetails.Count() == righeOrdine.Count())
                     {
-                        for(int i = 0; i < CandidateOd.Count; i++)
-                        {
-                            CandidateOd[i].IdOrder = righeOrdine[i].IdOrder;
-                            CandidateOd[i].IdItem = righeOrdine[i].IdItem;
-                            CandidateOd[i].Quantity = righeOrdine[i].Quantity;
-                            CandidateOd[i].SinglePrice = righeOrdine[i].SinglePrice;
-                        }
+                        candidateO.OrderDetails = righeOrdine;
                     }
+                        
+
+
+                    //List<OrderDetail> CandidateOd = context.OrderDetails.Where(od => od.IdOrder == candidateO.Id).ToList(); 
+                    //if(CandidateOd != null && CandidateOd.Count() == righeOrdine.Count)
+                    //{
+                    //    for(int i = 0; i < CandidateOd.Count; i++)
+                    //    {
+                    //        CandidateOd[i].IdOrder = righeOrdine[i].IdOrder;
+                    //        CandidateOd[i].IdItem = righeOrdine[i].IdItem;
+                    //        CandidateOd[i].Quantity = righeOrdine[i].Quantity;
+                    //        CandidateOd[i].SinglePrice = righeOrdine[i].SinglePrice;
+                    //    }
+                    //}
                     
                     
 
