@@ -143,10 +143,23 @@ namespace Rivenditore.Controllers
             {
                 try
                 {
-                    Order candidate = context.Orders.FirstOrDefault(o => o.Id == orderToModify.Id);
-                    candidate.IdCustomer = idCustomer;
-                    candidate.Notes = note;
-                    candidate.OrderDetails = righeOrdine;
+                    Order candidateO = context.Orders.FirstOrDefault(o => o.Id == orderToModify.Id);
+                    candidateO.IdCustomer = idCustomer;
+                    candidateO.Notes = note;
+
+                    List<OrderDetail> CandidateOd = context.OrderDetails.Where(od => od.IdOrder == candidateO.Id).ToList(); 
+                    if(CandidateOd != null && CandidateOd.Count() == righeOrdine.Count)
+                    {
+                        for(int i = 0; i < CandidateOd.Count; i++)
+                        {
+                            CandidateOd[i].IdOrder = righeOrdine[i].IdOrder;
+                            CandidateOd[i].IdItem = righeOrdine[i].IdItem;
+                            CandidateOd[i].Quantity = righeOrdine[i].Quantity;
+                            CandidateOd[i].SinglePrice = righeOrdine[i].SinglePrice;
+                        }
+                    }
+                    
+                    
 
                     context.SaveChanges();
                 }
