@@ -117,15 +117,32 @@ namespace Rivenditore.Controllers
             {
                 try
                 {
-                    context.Orders.Add(
-                    new Order
+                
+                    Order orderToInsert = new Order
                     {
                         IdCustomer = idCustomer,
                         IdOrderStates = 10,
                         OrderDate = DateTime.Now,
                         Notes = note,
-                        OrderDetails = righeOrdine
-                    });
+                        
+                        
+                    } ;
+
+
+                    orderToInsert.OrderDetails = new List<OrderDetail>();
+
+                    foreach (OrderDetail od in righeOrdine)
+                    {
+                        orderToInsert.OrderDetails.Add(new OrderDetail {
+                            IdItem = od.Item.Id,
+                            SinglePrice = od.SinglePrice,
+                            Quantity = od.Quantity
+
+                        });
+                    }
+
+                    context.Orders.Add(orderToInsert);
+                    
 
                     context.SaveChanges();
                 }
@@ -149,7 +166,24 @@ namespace Rivenditore.Controllers
 
                     if (candidateO.OrderDetails != null && candidateO.OrderDetails.Count() == righeOrdine.Count())
                     {
-                        candidateO.OrderDetails = righeOrdine;
+                        int counter = 0;
+                        foreach (var od in candidateO.OrderDetails)
+                        {
+                            od.IdItem = righeOrdine[counter].Item.Id;
+                            od.IdOrder = righeOrdine[counter].IdOrder;
+                            od.Quantity = righeOrdine[counter].Quantity;
+                            od.SinglePrice = righeOrdine[counter].SinglePrice;
+                            counter++;
+                        }
+
+                    }else if(candidateO.OrderDetails != null && candidateO.OrderDetails.Count() != righeOrdine.Count())
+                    {
+                        candidateO.OrderDetails.Clear();
+                        foreach (OrderDetail od in righeOrdine)
+                        {
+                            candidateO.OrderDetails.Add(od);
+                        }
+                        
                     }
                         
 
