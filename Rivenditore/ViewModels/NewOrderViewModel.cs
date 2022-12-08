@@ -10,6 +10,7 @@ namespace Rivenditore.ViewModels
 {
     class NewOrderViewModel : BaseViewModel
     {
+        private Order ordineInModifica;
         private List<OrderDetail> _orderDetails;
 
         public List<OrderDetail> OrderDetails
@@ -80,6 +81,7 @@ namespace Rivenditore.ViewModels
 
         }
 
+        /*
         public NewOrderViewModel(Order order)
         {
             Setup().ContinueWith(l => { 
@@ -90,8 +92,25 @@ namespace Rivenditore.ViewModels
                 Note = order.Notes;
             });
         }
-
-
+        */
+        
+        public NewOrderViewModel(Order order)
+        {
+            ordineInModifica = new Order();
+            ordineInModifica = order;
+            Setup().ContinueWith(l => {
+                OrderDetails = new List<OrderDetail>();
+                OrderDetails = OrdersController.GetRowByOrder(order);
+                foreach (var od in OrderDetails)
+                {
+                    od.Item = ListaItem.FirstOrDefault(q => q.Id == od.IdItem);
+                }
+                LabelTitolo = "Modifica Ordine";
+                SelectedCustomer = ListaCustomer.FirstOrDefault(c => c.Id == order.IdCustomer); //CustomersController.GetCustomerByOrder(order);
+                Note = order.Notes;
+            });
+        }
+        
 
         private async Task Setup()
         {
@@ -100,10 +119,10 @@ namespace Rivenditore.ViewModels
         }
         internal void Salva()
         {
-            if(LabelTitolo.Contains("Nuovo"))
+            if (LabelTitolo.Contains("Nuovo"))
                 OrdersController.InsertOrder(SelectedCustomer.Id, Note, OrderDetails);
-            
-                //Else todo
+            else
+                OrdersController.ModifyOrder(ordineInModifica, SelectedCustomer.Id, Note, OrderDetails);
         }
 
 

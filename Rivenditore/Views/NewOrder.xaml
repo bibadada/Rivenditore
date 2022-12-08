@@ -48,9 +48,8 @@
                 <DataGridComboBoxColumn 
                     Header="Prodotto"
                     Width="300"
-                    SelectedValueBinding="{Binding IdItem}" 
-                    DisplayMemberPath="Name" 
-                    SelectedValuePath="Id">
+                    SelectedItemBinding="{Binding ItemBinding, UpdateSourceTrigger=PropertyChanged}" 
+                    DisplayMemberPath="Name" >
 
                     <DataGridComboBoxColumn.ElementStyle>
                         <Style TargetType="{x:Type ComboBox}">
@@ -65,7 +64,7 @@
                 </DataGridComboBoxColumn>
                 
                 <DataGridTextColumn Header="Quantità" Binding="{Binding Quantity}"/>
-                <DataGridTextColumn Header="Prezzo Singolo" Binding="{Binding SinglePrice}" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Prezzo Singolo" Binding="{Binding SinglePriceBinding}" IsReadOnly="False"/>
                 <!--<DataGridTemplateColumn Header="Conferma" CellTemplate="{StaticResource ButtonConfermaTemplate}"/>-->
             </DataGrid.Columns>
 
