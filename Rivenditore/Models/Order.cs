@@ -23,6 +23,7 @@ namespace Rivenditore.Models
         public int Id { get; set; }
         public int IdCustomer { get; set; }
         public int IdOrderStates { get; set; }
+        public string IdApi { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DateOrederPlaced { get; set; }
         public string Notes { get; set; }

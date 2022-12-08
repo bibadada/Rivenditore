@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ea83884b66ab442bb24be48f090a641d" Name="Diagram1">
+      <Diagram DiagramId="6cb329b8f294487391d8f1fcb1d184c1" Name="Diagram1">
         <EntityTypeShape EntityType="RivenditoreModel.Customer" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="RivenditoreModel.Item" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="RivenditoreModel.Order" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RivenditoreModel.Order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="RivenditoreModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="RivenditoreModel.OrderState" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <AssociationConnector Association="RivenditoreModel.FK__Order__IdCustome__17036CC0" ManuallyRouted="false" />
-        <AssociationConnector Association="RivenditoreModel.FK__OrderDeta__IdIte__1BC821DD" ManuallyRouted="false" />
-        <AssociationConnector Association="RivenditoreModel.FK__Order__IdOrderSt__17F790F9" ManuallyRouted="false" />
-        <AssociationConnector Association="RivenditoreModel.FK__OrderDeta__IdOrd__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="RivenditoreModel.FK__Order__IdCustome__29221CFB" ManuallyRouted="false" />
+        <AssociationConnector Association="RivenditoreModel.FK__OrderDeta__IdIte__2DE6D218" ManuallyRouted="false" />
+        <AssociationConnector Association="RivenditoreModel.FK__Order__IdOrderSt__2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="RivenditoreModel.FK__OrderDeta__IdOrd__2CF2ADDF" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

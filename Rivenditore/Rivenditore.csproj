@@ -72,37 +72,37 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Helpers\OrderStatesConverter.cs" />
     <Compile Include="Models\Customer.cs">
-      <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
+      <DependentUpon>RivenditoreDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomerExtension.cs" />
-    <Compile Include="Models\DatabaseRivenditore.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseRivenditore.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DatabaseRivenditore.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DatabaseRivenditore.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseRivenditore.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Item.cs">
-      <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
+      <DependentUpon>RivenditoreDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs">
-      <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
+      <DependentUpon>RivenditoreDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderDetail.cs">
-      <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
+      <DependentUpon>RivenditoreDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderDetailExtension.cs" />
     <Compile Include="Models\OrderExtension.cs" />
     <Compile Include="Models\OrderState.cs">
-      <DependentUpon>DatabaseRivenditore.tt</DependentUpon>
+      <DependentUpon>RivenditoreDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RivenditoreDatabase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RivenditoreDatabase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RivenditoreDatabase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RivenditoreDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RivenditoreDatabase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RivenditoreDatabase.edmx</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
@@ -185,12 +185,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\DatabaseRivenditore.edmx">
+    <EntityDeploy Include="Models\RivenditoreDatabase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DatabaseRivenditore.Designer.cs</LastGenOutput>
+      <LastGenOutput>RivenditoreDatabase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\DatabaseRivenditore.edmx.diagram">
-      <DependentUpon>DatabaseRivenditore.edmx</DependentUpon>
+    <None Include="Models\RivenditoreDatabase.edmx.diagram">
+      <DependentUpon>RivenditoreDatabase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -202,19 +202,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\DatabaseRivenditore.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DatabaseRivenditore.edmx</DependentUpon>
-      <LastGenOutput>DatabaseRivenditore.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DatabaseRivenditore.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DatabaseRivenditore.edmx</DependentUpon>
-      <LastGenOutput>DatabaseRivenditore.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Models\RivenditoreDatabase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RivenditoreDatabase.edmx</DependentUpon>
+      <LastGenOutput>RivenditoreDatabase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\RivenditoreDatabase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RivenditoreDatabase.edmx</DependentUpon>
+      <LastGenOutput>RivenditoreDatabase.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

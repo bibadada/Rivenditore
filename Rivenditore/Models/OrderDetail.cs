@@ -15,8 +15,8 @@ namespace Rivenditore.Models
     public partial class OrderDetail
     {
         public int Id { get; set; }
-        public Nullable<int> IdOrder { get; set; }
-        public Nullable<int> IdItem { get; set; }
+        public int IdOrder { get; set; }
+        public int IdItem { get; set; }
         public int Quantity { get; set; }
         public double SinglePrice { get; set; }
     
