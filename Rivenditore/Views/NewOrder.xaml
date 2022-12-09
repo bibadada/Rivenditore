@@ -1,4 +1,5 @@
-﻿<Window x:Class="Rivenditore.Views.NewOrder"
+﻿<mah:MetroWindow x:Class="Rivenditore.Views.NewOrder"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -23,18 +24,18 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="110"/>
             <RowDefinition Height="80"/>
             <RowDefinition/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >Dettaglio Ordine</Label>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" FontSize="40" FontWeight="Bold" Margin="0 0 0 20" VerticalAlignment="Center" HorizontalAlignment="Center" >Dettaglio Ordine</Label>
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="10">
-            <Label FontSize="16">Cliente:</Label>
+            <Label FontSize="16" FontWeight="Bold">Cliente:</Label>
             <ComboBox Height="35" ItemsSource="{Binding ListaCustomer}"  SelectedItem="{Binding SelectedCustomer}" DisplayMemberPath="GetNameSurname" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"  VerticalAlignment="Bottom" Margin="10">
-            <Label FontSize="16">Note Ordine:</Label>
+            <Label FontSize="16" FontWeight="Bold">Note Ordine:</Label>
             <TextBox Height="35" Text="{Binding Note}" />
         </StackPanel>
         <StackPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
@@ -42,7 +43,7 @@
             <Button Grid.Row="5" Grid.Column="4" Name="Annulla" Content="Annulla" Width="100" Height="30" Margin="10" FontSize="14" Click="Annulla_Click" ></Button>
         </StackPanel>
 
-        <DataGrid  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding OrderDetails}" >
+        <DataGrid  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding OrderDetails}" RowHeight="30" >
             <DataGrid.Columns>
                 <!--<DataGridComboBoxColumn Header="Prodotto"  ItemsSource="{Binding ListaItem}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValueBinding="{Binding IdItem}"/>-->
                 <DataGridComboBoxColumn 
@@ -63,8 +64,8 @@
                     </DataGridComboBoxColumn.EditingElementStyle>
                 </DataGridComboBoxColumn>
                 
-                <DataGridTextColumn Header="Quantità" Binding="{Binding Quantity}"/>
-                <DataGridTextColumn Header="Prezzo Singolo" Binding="{Binding SinglePriceBinding}" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Quantità" Width="100"  Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="Prezzo Singolo" Width="150" Binding="{Binding SinglePriceBinding}" IsReadOnly="False"/>
                 <!--<DataGridTemplateColumn Header="Conferma" CellTemplate="{StaticResource ButtonConfermaTemplate}"/>-->
             </DataGrid.Columns>
 
@@ -74,4 +75,4 @@
 
 
     </Grid>
-</Window>
+</mah:MetroWindow>

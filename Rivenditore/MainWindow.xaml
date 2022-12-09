@@ -1,4 +1,5 @@
-﻿<Window x:Class="Rivenditore.MainWindow"
+﻿<mah:MetroWindow x:Class="Rivenditore.MainWindow"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"        
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -12,7 +13,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -21,6 +22,7 @@
                 <MenuItem Header="Menu" Name="Menu" Click="Menu_Click"></MenuItem>
                 <MenuItem Header="Logout" Name="Logout" Click="Logout_Click"></MenuItem>
             </MenuItem>
+            
             <MenuItem Name="MenuItemClienti" Header="Clienti" Click="MenuItemClienti_Click"></MenuItem>
             <MenuItem Name="MenuItemOrdini" Header="Ordini" Click="MenuItemOrdini_Click"></MenuItem>
             <MenuItem Name="MenuItemArticoli" Header="Articoli" Click="MenuItemArticoli_Click"></MenuItem>
@@ -28,4 +30,4 @@
         </Menu>
         <Frame x:Name="NavigationFrame" Grid.Row="1" Source="./Views/MainMenu.xaml" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
-</Window>
+</mah:MetroWindow>

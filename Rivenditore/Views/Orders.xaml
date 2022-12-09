@@ -28,7 +28,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>
-            <ColumnDefinition Width="150"/>
+            
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -36,7 +36,7 @@
             <RowDefinition/>
             <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleLable2}" >Ordini</Label>
+        <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50 0 0 0" FontSize="40" FontWeight="Bold">Ordini</Label>
 
 
         <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Margin="10">

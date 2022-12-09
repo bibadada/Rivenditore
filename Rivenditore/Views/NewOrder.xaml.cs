@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 using Rivenditore.Models;
 using Rivenditore.ViewModels;
 
@@ -19,7 +20,7 @@ namespace Rivenditore.Views
     /// <summary>
     /// Logica di interazione per NewOrder.xaml
     /// </summary>
-    public partial class NewOrder : Window
+    public partial class NewOrder : MetroWindow
     {
         private NewOrderViewModel vm;
         public NewOrder()
