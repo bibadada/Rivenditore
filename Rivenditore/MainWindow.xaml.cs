@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 using Rivenditore.ViewModels;
 using Rivenditore.Views;
 
@@ -20,7 +21,7 @@ namespace Rivenditore
     /// <summary>
     /// Logica di interazione per MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         MainWindowViewModel vm;
         public MainWindow()

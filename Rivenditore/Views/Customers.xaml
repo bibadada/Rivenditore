@@ -29,7 +29,7 @@
             <RowDefinition Height="125"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource TitleLable2}">Clienti</Label>
+        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource TitleLable2}" >Clienti</Label>
 
 
         <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Margin="10">
