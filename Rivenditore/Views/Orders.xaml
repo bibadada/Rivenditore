@@ -48,7 +48,7 @@
             
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Cliente" Binding="{Binding IdCustomer}"/>
+                <DataGridTextColumn Header="Cliente" Binding="{Binding Customer.GetNameSurname}"/>
                 <DataGridTextColumn Header="Stato Ordine" Binding="{Binding IdOrderStates}"/>
                 <DataGridTextColumn Header="Data Ordine" Binding="{Binding OrderDate, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn Header="Data Invio Ordine" Binding="{Binding DateOrederPlaced, StringFormat='dd/MM/yyyy'}"/>

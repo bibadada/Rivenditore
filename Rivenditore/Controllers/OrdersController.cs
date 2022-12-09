@@ -22,7 +22,7 @@ namespace Rivenditore.Controllers
             {
                 try
                 {
-                    return await context.Orders.ToListAsync();
+                    return await context.Orders.Include(c => c.Customer).ToListAsync();
                 }
                 catch (Exception)
                 {
@@ -110,7 +110,7 @@ namespace Rivenditore.Controllers
                         });
                     }
 
-                    var options = new RestClientOptions(/*"https://webhook.site/c9d1dd4a-f0b0-44a1-8433-ec5c367cdff6")//*/"https://80.211.144.168/api/v1/orders")
+                    var options = new RestClientOptions("https://80.211.144.168/api/v1/orders")
                     {
                         RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true
                     };
