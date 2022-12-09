@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Rivenditore.Models;
 using Rivenditore.Controllers;
 using Rivenditore.Views;
+using System.Windows;
 
 namespace Rivenditore.ViewModels
 {
@@ -51,10 +52,18 @@ namespace Rivenditore.ViewModels
             Setup();
         }
 
-        internal void ConfermaOrdine()
+        internal async void ConfermaOrdine()
         {
-            OrdersController.ConfirmOrderState(OrdineSelezionato);
-            Setup();
+            try
+            {
+                await OrdersController.ConfirmOrderState(OrdineSelezionato);
+                await Setup();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                
+            }
         }
 
         internal void ModificaOrdine()

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Rivenditore.Models;
 using System.Data.Entity;
 using System.Configuration;
+using RestSharp;
+using RestSharp.Authenticators;
 
 namespace Rivenditore.Controllers
 {
@@ -90,21 +92,53 @@ namespace Rivenditore.Controllers
         }
 
         //metodo che modifica lo stato di un ordine a confermato
-        public static void ConfirmOrderState(Order order)
+        public static async Task ConfirmOrderState(Order order)
         {
             using (RivenditoreEntities context = new RivenditoreEntities())
             {
                 try
                 {
-                    Order candidate = context.Orders.FirstOrDefault(o => o.Id == order.Id);
-                    if (candidate != null)
+                    List<OrderDetail> OrderDetailsApi = context.OrderDetails.Where(od => od.IdOrder == order.Id).ToList();
+                    List<DtoRequest.OrderItemDTO> orderItems = new List<DtoRequest.OrderItemDTO>();
+                    foreach (var item in OrderDetailsApi)
                     {
-                        candidate.IdOrderStates = 20;
-                        candidate.DateOrederPlaced = DateTime.Now;
-                        context.SaveChanges();
+                        orderItems.Add(new DtoRequest.OrderItemDTO 
+                        { 
+                            ItemId = item.Item.Id,
+                            Quantity = item.Quantity,
+                            UnitaryPrice = item.SinglePrice
+                        });
                     }
 
-                    List<OrderDetail> OrderDetailsToSendApi = context.OrderDetails.Where(od => od.IdOrder == order.Id).ToList();
+                    var options = new RestClientOptions(/*"https://webhook.site/c9d1dd4a-f0b0-44a1-8433-ec5c367cdff6")//*/"https://80.211.144.168/api/v1/orders")
+                    {
+                        RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true
+                    };
+                    var client = new RestClient(options)
+                    {
+                        Authenticator = new JwtAuthenticator(token)
+                    };
+                    var request = new RestRequest();
+                    request.AddBody(new DtoRequest.OrderDTO
+                    {
+                        CustomerId = order.IdCustomer,
+                        OrderDate = DateTime.Now,
+                        Notes = order.Notes,
+                        OrderItems = orderItems
+
+                    });
+                    
+                    var response = client.Post<DtoResponse.OrderResponseDTO>(request);
+
+                    Order candidate = context.Orders.FirstOrDefault(o => o.Id == order.Id);
+                    
+                 
+                    candidate.IdOrderStates = 20;
+                    candidate.DateOrederPlaced = DateTime.Now;
+                    candidate.IdApi = response.Id;
+                    context.SaveChanges();
+                 
+
 
 
 

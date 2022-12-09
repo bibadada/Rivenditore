@@ -58,6 +58,7 @@
                 <DataGridTemplateColumn Header="Conferma Ordine" CellTemplate="{StaticResource ButtonConfermaTemplate}"/>
                 <DataGridTemplateColumn Header="Modifica Ordine" CellTemplate="{StaticResource ButtonModificaTemplate}"/>
                 <DataGridTemplateColumn Header="Elimina Ordine" CellTemplate="{StaticResource ButtonEliminaTemplate}"/>
+                <DataGridTextColumn Header="IDAPI" Binding="{Binding IdApi}"/>
             </DataGrid.Columns>
 
         </DataGrid>
