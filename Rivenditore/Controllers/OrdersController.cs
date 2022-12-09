@@ -160,45 +160,20 @@ namespace Rivenditore.Controllers
             {
                 try
                 {
-                    Order candidateO = context.Orders.Include(o => o.OrderDetails).FirstOrDefault(o => o.Id == orderToModify.Id);
+                    Order candidateO = context.Orders.FirstOrDefault(o => o.Id == orderToModify.Id);
                     candidateO.IdCustomer = idCustomer;
                     candidateO.Notes = note;
 
-                    if (candidateO.OrderDetails != null && candidateO.OrderDetails.Count() == righeOrdine.Count())
-                    {
-                        int counter = 0;
-                        foreach (var od in candidateO.OrderDetails)
-                        {
-                            od.IdItem = righeOrdine[counter].Item.Id;
-                            od.IdOrder = righeOrdine[counter].IdOrder;
-                            od.Quantity = righeOrdine[counter].Quantity;
-                            od.SinglePrice = righeOrdine[counter].SinglePrice;
-                            counter++;
-                        }
 
-                    }else if(candidateO.OrderDetails != null && candidateO.OrderDetails.Count() != righeOrdine.Count())
+                    context.OrderDetails.RemoveRange(context.OrderDetails.Where(od => od.IdOrder == candidateO.Id).ToList());
+
+                    foreach (var od in righeOrdine)
                     {
-                        candidateO.OrderDetails.Clear();
-                        foreach (OrderDetail od in righeOrdine)
-                        {
-                            candidateO.OrderDetails.Add(od);
-                        }
-                        
+                        od.IdOrder = candidateO.Id;
+                        od.IdItem = od.Item.Id;
                     }
-                        
 
-
-                    //List<OrderDetail> CandidateOd = context.OrderDetails.Where(od => od.IdOrder == candidateO.Id).ToList(); 
-                    //if(CandidateOd != null && CandidateOd.Count() == righeOrdine.Count)
-                    //{
-                    //    for(int i = 0; i < CandidateOd.Count; i++)
-                    //    {
-                    //        CandidateOd[i].IdOrder = righeOrdine[i].IdOrder;
-                    //        CandidateOd[i].IdItem = righeOrdine[i].IdItem;
-                    //        CandidateOd[i].Quantity = righeOrdine[i].Quantity;
-                    //        CandidateOd[i].SinglePrice = righeOrdine[i].SinglePrice;
-                    //    }
-                    //}
+                    context.OrderDetails.AddRange(righeOrdine);
                     
                     
 

@@ -122,7 +122,12 @@ namespace Rivenditore.ViewModels
             if (LabelTitolo.Contains("Nuovo"))
                 OrdersController.InsertOrder(SelectedCustomer.Id, Note, OrderDetails);
             else
+            {
+                
                 OrdersController.ModifyOrder(ordineInModifica, SelectedCustomer.Id, Note, OrderDetails);
+
+            }
+                
         }
 
 
