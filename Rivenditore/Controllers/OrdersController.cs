@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Rivenditore.Models;
 using System.Data.Entity;
+using System.Configuration;
 
 namespace Rivenditore.Controllers
 {
     public static class OrdersController
     {
+
+        private static string token = ConfigurationManager.ConnectionStrings["TokenApi"].ConnectionString;
 
         public async static Task<List<Order>> GetAll()
         {
@@ -101,6 +104,10 @@ namespace Rivenditore.Controllers
                         context.SaveChanges();
                     }
 
+                    List<OrderDetail> OrderDetailsToSendApi = context.OrderDetails.Where(od => od.IdOrder == order.Id).ToList();
+
+
+
                 }
                 catch (Exception)
                 {
@@ -174,8 +181,8 @@ namespace Rivenditore.Controllers
                     }
 
                     context.OrderDetails.AddRange(righeOrdine);
-                    
-                    
+
+
 
                     context.SaveChanges();
                 }
