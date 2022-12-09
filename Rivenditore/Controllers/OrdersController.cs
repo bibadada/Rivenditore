@@ -22,7 +22,7 @@ namespace Rivenditore.Controllers
             {
                 try
                 {
-                    return await context.Orders.Include(c => c.Customer).ToListAsync();
+                    return await context.Orders.Include(c => c.Customer).Include(x => x.OrderState).ToListAsync();
                 }
                 catch (Exception)
                 {
@@ -91,7 +91,7 @@ namespace Rivenditore.Controllers
 
         }
 
-        //metodo che modifica lo stato di un ordine a confermato
+
         public static async Task ConfirmOrderState(Order order)
         {
             using (RivenditoreEntities context = new RivenditoreEntities())
@@ -102,8 +102,8 @@ namespace Rivenditore.Controllers
                     List<DtoRequest.OrderItemDTO> orderItems = new List<DtoRequest.OrderItemDTO>();
                     foreach (var item in OrderDetailsApi)
                     {
-                        orderItems.Add(new DtoRequest.OrderItemDTO 
-                        { 
+                        orderItems.Add(new DtoRequest.OrderItemDTO
+                        {
                             ItemId = item.Item.Id,
                             Quantity = item.Quantity,
                             UnitaryPrice = item.SinglePrice
@@ -127,20 +127,16 @@ namespace Rivenditore.Controllers
                         OrderItems = orderItems
 
                     });
-                    
+
                     var response = client.Post<DtoResponse.OrderResponseDTO>(request);
 
                     Order candidate = context.Orders.FirstOrDefault(o => o.Id == order.Id);
-                    
-                 
+
+
                     candidate.IdOrderStates = 20;
                     candidate.DateOrederPlaced = DateTime.Now;
                     candidate.IdApi = response.Id;
                     context.SaveChanges();
-                 
-
-
-
 
                 }
                 catch (Exception)
@@ -152,29 +148,31 @@ namespace Rivenditore.Controllers
 
         }
 
-        public static void InsertOrder(int idCustomer, string note, List<OrderDetail> righeOrdine) {
-        
-            using(RivenditoreEntities context = new RivenditoreEntities())
+        public static void InsertOrder(int idCustomer, string note, List<OrderDetail> righeOrdine)
+        {
+
+            using (RivenditoreEntities context = new RivenditoreEntities())
             {
                 try
                 {
-                
+
                     Order orderToInsert = new Order
                     {
                         IdCustomer = idCustomer,
                         IdOrderStates = 10,
                         OrderDate = DateTime.Now,
                         Notes = note,
-                        
-                        
-                    } ;
+
+
+                    };
 
 
                     orderToInsert.OrderDetails = new List<OrderDetail>();
 
                     foreach (OrderDetail od in righeOrdine)
                     {
-                        orderToInsert.OrderDetails.Add(new OrderDetail {
+                        orderToInsert.OrderDetails.Add(new OrderDetail
+                        {
                             IdItem = od.Item.Id,
                             SinglePrice = od.SinglePrice,
                             Quantity = od.Quantity
@@ -183,7 +181,7 @@ namespace Rivenditore.Controllers
                     }
 
                     context.Orders.Add(orderToInsert);
-                    
+
 
                     context.SaveChanges();
                 }
@@ -229,7 +227,7 @@ namespace Rivenditore.Controllers
         }
         public static List<OrderDetail> GetRowByOrder(Order order)
         {
-            using(RivenditoreEntities context = new RivenditoreEntities())
+            using (RivenditoreEntities context = new RivenditoreEntities())
             {
                 try
                 {
@@ -246,21 +244,21 @@ namespace Rivenditore.Controllers
 
         public static DateTime? CalculateDeliveryDate(Order order)
         {
-            using(RivenditoreEntities context = new RivenditoreEntities())
+            using (RivenditoreEntities context = new RivenditoreEntities())
             {
                 try
                 {
                     var d1 = context.Orders.FirstOrDefault(o => o.Id == order.Id).DateOrederPlaced;
                     var d2 = context.OrderDetails.Include(od => od.Item).Where(od => od.IdOrder == order.Id).Max(m => m.Item.LeadTime);
 
-                    if(d1 != null && d2 != null)
+                    if (d1 != null && d2 != null)
                     {
                         var v = (DateTime)d1;
-                        var v2 =  (double)d2;
+                        var v2 = (double)d2;
 
-                        return v.AddDays(v2); 
+                        return v.AddDays(v2);
                     }
-                    return null;  
+                    return null;
                 }
                 catch (Exception)
                 {

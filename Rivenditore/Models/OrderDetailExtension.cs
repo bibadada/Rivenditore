@@ -9,6 +9,11 @@ namespace Rivenditore.Models
 {
     public partial class OrderDetail : BaseViewModel
     {
+        public OrderDetail()
+        {
+            Quantity = 1;
+        }
+
         public Item ItemBinding
         {
             get
