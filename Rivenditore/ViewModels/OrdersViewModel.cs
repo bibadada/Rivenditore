@@ -66,6 +66,11 @@ namespace Rivenditore.ViewModels
             }
         }
 
+        internal void RicaricaStati()
+        {
+            throw new NotImplementedException();
+        }
+
         internal void ModificaOrdine()
         {
             NewOrder newOrder = new NewOrder(OrdineSelezionato);
