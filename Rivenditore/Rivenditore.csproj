@@ -82,6 +82,10 @@
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="DtoRequest\OrderDTO.cs" />
+    <Compile Include="DtoRequest\OrderItemDTO.cs" />
+    <Compile Include="DtoResponse\OrderResponseDTO.cs" />
+    <Compile Include="DtoResponse\OrderStatesDTO.cs" />
     <Compile Include="Helpers\OrderStatesConverter.cs" />
     <Compile Include="Models\Customer.cs">
       <DependentUpon>RivenditoreDatabase.tt</DependentUpon>
@@ -228,6 +232,7 @@
       <LastGenOutput>RivenditoreDatabase.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
