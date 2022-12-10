@@ -62,13 +62,20 @@ namespace Rivenditore.ViewModels
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
-                
             }
         }
 
-        internal void RicaricaStati()
+        internal async void RicaricaStati()
         {
-            throw new NotImplementedException();
+            try
+            {
+                await OrdersController.GetOrderStates();
+                await Setup();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         internal void ModificaOrdine()

@@ -8,6 +8,7 @@ using System.Data.Entity;
 using System.Configuration;
 using RestSharp;
 using RestSharp.Authenticators;
+using Rivenditore.DtoResponse;
 
 namespace Rivenditore.Controllers
 {
@@ -66,20 +67,33 @@ namespace Rivenditore.Controllers
             }
         }
 
-        //metodo che modifica lo stato di un ordine a confermato
-        public static void ConfirmOrderState(int id)
+
+        public static async Task GetOrderStates()
         {
             using (RivenditoreEntities context = new RivenditoreEntities())
             {
                 try
                 {
-                    Order candidate = context.Orders.FirstOrDefault(o => o.Id == id);
-                    if (candidate != null)
+                    var ListaOrdini = await context.Orders.Where(q => q.IdApi != null).ToListAsync();
+                    
+                    var options = new RestClientOptions("https://80.211.144.168/api/v1/orders/{id}/state")
                     {
-                        candidate.IdOrderStates = 20;
-                        candidate.DateOrederPlaced = DateTime.Now;
-                        context.SaveChanges();
+                        RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true
+                    };
+                    var client = new RestClient(options)
+                    {
+                        Authenticator = new JwtAuthenticator(token)
+                    };
+
+                    foreach (var order in ListaOrdini)
+                    {
+                        var request = new RestRequest();
+                        request.AddParameter("id", order.IdApi, ParameterType.UrlSegment);
+                        var response = await client.GetAsync<OrderStatesDTO>(request);
+                        order.IdOrderStates = response.Id;
                     }
+                    context.SaveChanges();
+
 
                 }
                 catch (Exception)
