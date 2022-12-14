@@ -223,7 +223,7 @@ namespace Rivenditore.Controllers
                     foreach (var od in righeOrdine)
                     {
                         od.IdOrder = candidateO.Id;
-                        od.IdItem = od.Item.Id;
+                        od.Item = context.Items.FirstOrDefault(i => i.Id == od.Item.Id);
                     }
 
                     context.OrderDetails.AddRange(righeOrdine);
