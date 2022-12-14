@@ -8,33 +8,7 @@
         mc:Ignorable="d"
         Title="{Binding LabelTitolo}" Height="540" Width="820" MinWidth="820" MinHeight="534" MouseMove="Window_MouseMove" PreviewKeyDown="Window_PreviewKeyDown">
 
-    <Window.Resources>
-        <Style TargetType="TextBox">
-            <Setter Property="Validation.ErrorTemplate">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <StackPanel>
-                            <Border BorderThickness="1" BorderBrush="DarkRed">
-                                <StackPanel>
-                                    <AdornedElementPlaceholder x:Name="errorControl" />
-                                </StackPanel>
-                            </Border>
-                            <TextBlock Text="{Binding AdornedElement.ToolTip, ElementName=errorControl}" Foreground="Red" />
-                        </StackPanel>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="Validation.HasError" Value="true">
-                    <Setter Property="BorderBrush" Value="Red" />
-                    <Setter Property="BorderThickness" Value="1" />
-                    <Setter Property="ToolTip"
-        Value="{Binding RelativeSource={RelativeSource Self}
-            , Path=(Validation.Errors)[0].ErrorContent}" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>
+   
 
     <Grid>
         <Grid.ColumnDefinitions>

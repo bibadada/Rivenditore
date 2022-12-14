@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -67,7 +68,7 @@ namespace Rivenditore.ViewModels
 
 
         private string _note;
-
+        [MaxLength(5000, ErrorMessage = "le note non possono contenere piu di 5000 caratteri")]
         public string Note
         {
             get { return _note; }

@@ -21,8 +21,15 @@ namespace Rivenditore.ViewModels
             {
                 
                 string ErrorMsg = "";
+                ValidationContext valContext;
 
-                ValidationContext valContext = new ValidationContext(new CustomerExtension()) { MemberName = columnName };
+                if (this.GetType() == typeof(Customer))
+                    valContext = new ValidationContext(new CustomerExtension()) { MemberName = columnName };
+                else if(this.GetType() == typeof(Order))
+                    valContext = new ValidationContext(new OrderExtension()) { MemberName = columnName };
+                else
+                    valContext = new ValidationContext(this) { MemberName = columnName };
+
                 List<ValidationResult> ListaErrori = new List<ValidationResult>();
 
                 if (!Validator.TryValidateProperty(
