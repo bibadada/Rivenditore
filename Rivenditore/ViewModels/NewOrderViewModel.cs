@@ -65,7 +65,7 @@ namespace Rivenditore.ViewModels
         }
 
         private string _note;
-        [Required]
+        [MaxLength(5000)]
         public string Note
         {
             get { return _note; }
