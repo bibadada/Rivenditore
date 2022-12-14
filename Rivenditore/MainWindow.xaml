@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rivenditore"
         mc:Ignorable="d"
-        Title="Gestionale Rivenditore" Height="700" Width="1200">
+        Title="Gestionale Rivenditore" Height="700" Width="1300" MinHeight="500" MinWidth="1000">
     <Grid>
 
         <Grid.ColumnDefinitions>

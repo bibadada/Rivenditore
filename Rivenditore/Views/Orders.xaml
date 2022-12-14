@@ -16,7 +16,7 @@
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="ButtonEliminaTemplate" >
-                <Button x:Name="Elimina" Content="Elimina" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}}" Margin="2" Click="Elimina_Click" Background="Red" Foreground="White" />
+                <Button x:Name="Elimina" Content="Elimina" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}, ConverterParameter='Elimina'}" Margin="2" Click="Elimina_Click" Background="Red" Foreground="White" />
             </DataTemplate>
             <DataTemplate x:Key="ButtonConfermaTemplate" >
                 <Button x:Name="Conferma" Content="Conferma" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}}" Margin="2" Click="Conferma_Click" Background="Lime" Foreground="White" />
@@ -28,36 +28,40 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>
-            
+            <ColumnDefinition Width="100"/>
+
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="120"/>
             <RowDefinition/>
-            <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50 0 0 0" FontSize="40" FontWeight="Bold">Ordini</Label>
 
 
-        <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Margin="10">
+        <Button Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Height="80" Margin="10" Name="Refresh" FontFamily="Segoe MDL2 Assets" Content="&#xE72C;" FontSize="50" Style="{DynamicResource MahApps.Styles.Button.Circle}" BorderBrush="{x:Null}" Foreground="#FF00CF00" Background="#00000000" Click="Refresh_Click" />
+
+
+        <StackPanel Grid.Row="0" Grid.Column="3" VerticalAlignment="Bottom" Margin="10">
             <Button Name="NuovoOrdine" Content="Nuovo Ordine" Height="70"  FontSize="16" Click="NuovoOrdine_Click"/>
         </StackPanel>
         <DataGrid Name="OrdiniDG" ItemsSource="{Binding ListaOrders}" SelectedItem="{Binding OrdineSelezionato}"
                    AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" 
                    IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
-            
+
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Cliente" Binding="{Binding IdCustomer}"/>
-                <DataGridTextColumn Header="Stato Ordine" Binding="{Binding IdOrderStates}"/>
+                <DataGridTextColumn Header="Cliente" Binding="{Binding Customer.GetNameSurname}"/>
+                <DataGridTextColumn Header="Stato Ordine" Binding="{Binding OrderState.Name}"/>
                 <DataGridTextColumn Header="Data Ordine" Binding="{Binding OrderDate, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn Header="Data Invio Ordine" Binding="{Binding DateOrederPlaced, StringFormat='dd/MM/yyyy'}"/>
-                <DataGridTextColumn Header="Note Ordine" Binding="{Binding Notes}"/>
+                <DataGridTextColumn Header="Note Ordine" Binding="{Binding Notes}" MaxWidth="200"/>
                 <DataGridTextColumn Header="Consegna Prevista" Binding="{Binding DeliveryDate, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn Header="Totale Ordine" Binding="{Binding TotalImport}"/>
                 <DataGridTemplateColumn Header="Conferma Ordine" CellTemplate="{StaticResource ButtonConfermaTemplate}"/>
                 <DataGridTemplateColumn Header="Modifica Ordine" CellTemplate="{StaticResource ButtonModificaTemplate}"/>
                 <DataGridTemplateColumn Header="Elimina Ordine" CellTemplate="{StaticResource ButtonEliminaTemplate}"/>
+                <DataGridTextColumn Header="IDAPI" Binding="{Binding IdApi}"/>
             </DataGrid.Columns>
 
         </DataGrid>

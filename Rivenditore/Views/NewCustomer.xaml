@@ -51,7 +51,7 @@
         </Grid.RowDefinitions>
 
         <!--<Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource TitleLable1}">Nuovo Cliente</Label> -->
-        <Label Content="{Binding LibelTitolo}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10"></Label>
+        <Label Content="{Binding LabelTitolo}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10"></Label>
         <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16" FontWeight="Bold">Nome:</Label>
             <TextBox Text="{Binding SelectedCustomer.Name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="30" FontSize="16" MaxLines="1"></TextBox>
@@ -64,7 +64,7 @@
 
         <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16" FontWeight="Bold">Codice Fiscale</Label>
-            <TextBox Text="{Binding SelectedCustomer.FiscalCode, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="30" FontSize="16" MaxLines="1" IsEnabled="{Binding IdEnabled}"/>
+            <TextBox Text="{Binding SelectedCustomer.FiscalCode, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Height="30" FontSize="16" MaxLines="1"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" Margin="10">

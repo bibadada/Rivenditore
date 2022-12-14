@@ -48,5 +48,10 @@ namespace Rivenditore.Views
         {
             vm.ModificaOrdine();
         }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            vm.RicaricaStati();
+        }
     }
 }
