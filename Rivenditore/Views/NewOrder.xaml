@@ -32,18 +32,18 @@
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" FontSize="40" FontWeight="Bold" Margin="0 0 0 20" VerticalAlignment="Center" HorizontalAlignment="Center" >Dettaglio Ordine</Label>
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16" FontWeight="Bold">Cliente:</Label>
-            <ComboBox Height="35" ItemsSource="{Binding ListaCustomer}"  SelectedItem="{Binding SelectedCustomer}" DisplayMemberPath="GetNameSurname" />
+            <ComboBox Height="35" ItemsSource="{Binding ListaCustomer}"  SelectedItem="{Binding SelectedCustomer}" DisplayMemberPath="GetNameSurname" IsEnabled="{Binding IsEnabledCombo}"  />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"  VerticalAlignment="Bottom" Margin="10">
             <Label FontSize="16" FontWeight="Bold">Note Ordine:</Label>
-            <TextBox Height="35" Text="{Binding Note}" />
+            <TextBox Height="35" Text="{Binding Note}" IsReadOnly="{Binding IsReadOnly}" />
         </StackPanel>
         <StackPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Grid.Row="5" Grid.Column="3" Name="Salva"  Content="Salva" Width="100" Height="30" Margin="10" FontSize="14"  Click="Salva_Click"></Button>
-            <Button Grid.Row="5" Grid.Column="4" Name="Annulla" Content="Annulla" Width="100" Height="30" Margin="10" FontSize="14" Click="Annulla_Click" ></Button>
+            <Button Visibility="{Binding VisibilitySalva}" IsEnabled="{Binding SalvaEnabled}" Grid.Row="5" Grid.Column="3" Name="Salva"  Content="Salva" Width="100" Height="30" Margin="10" FontSize="14"  Click="Salva_Click"></Button>
+            <Button Grid.Row="5"  Grid.Column="4" Name="Annulla" Content="{Binding AnnullaOrChiudi}" Width="100" Height="30" Margin="10" FontSize="14" Click="Annulla_Click" ></Button>
         </StackPanel>
 
-        <DataGrid  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding OrderDetails}" RowHeight="30" >
+        <DataGrid IsReadOnly="{Binding IsReadOnly}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding OrderDetails}" RowHeight="30" RowEditEnding="DataGrid_RowEditEnding" >
             <DataGrid.Columns>
                 <!--<DataGridComboBoxColumn Header="Prodotto"  ItemsSource="{Binding ListaItem}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValueBinding="{Binding IdItem}"/>-->
                 <DataGridComboBoxColumn 

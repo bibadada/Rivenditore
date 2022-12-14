@@ -28,6 +28,7 @@ namespace Rivenditore.ViewModels
             get { return _listaItem; }
             set { _listaItem = value;
                 NotifyPropretyChanged("ListaItem");
+                NotifyPropretyChanged("SalvaEnabled");
             }
         }
 
@@ -60,8 +61,10 @@ namespace Rivenditore.ViewModels
             get { return _selectedCustomer; }
             set { _selectedCustomer = value;
                 NotifyPropretyChanged("SelectedCustomer");
+                NotifyPropretyChanged("SalvaEnabled");
             }
         }
+
 
         private string _note;
 
@@ -73,31 +76,84 @@ namespace Rivenditore.ViewModels
             }
         }
 
+        private bool _isReadOnly;
+
+        public bool IsReadOnly
+        {
+            get { return _isReadOnly; }
+            set {_isReadOnly = value;
+                IsEnabledCombo = !value;
+                VisibilitySalva = value ? "Hidden" : "Visible";
+                AnnullaOrChiudi = value ? "Chiudi" : "Annulla";
+                NotifyPropretyChanged("IsReadOnly");
+            }
+        }
+
+        private bool _isEnabledCombo;
+
+        public bool IsEnabledCombo
+        {
+            get { return _isEnabledCombo; }
+            set { _isEnabledCombo = value;
+                NotifyPropretyChanged("IsEnabledCombo");
+            }
+        }
+
+        private string _visibilitySalva;
+
+        public string VisibilitySalva
+        {
+            get { return _visibilitySalva; }
+            set { _visibilitySalva = value;
+                NotifyPropretyChanged("VisibilitySalva");
+            }
+        }
+
+        private string _annullaOrChiudi;
+
+        public string AnnullaOrChiudi
+        {
+            get { return _annullaOrChiudi; }
+            set { _annullaOrChiudi = value;
+                NotifyPropretyChanged("AnnullaOrChiudi");
+            }
+        }
+
+        private bool _salvaEnabled;
+
+        public bool SalvaEnabled
+        {
+            get { if (SelectedCustomer != null && OrderDetails.Count > 0)
+                    _salvaEnabled = true;
+                return _salvaEnabled; }
+            set { _salvaEnabled = value;
+                NotifyPropretyChanged("SalvaEnabled");
+            }
+        }
+
+        internal void NuovoElementoInGriglia()
+        {
+            NotifyPropretyChanged("SalvaEnabled");
+        }
+
+
         public NewOrderViewModel()
         {
             OrderDetails = new List<OrderDetail>();
             LabelTitolo = "Nuovo Ordine";
+            IsReadOnly = false;
+            //SalvaEnabled = false;
             Setup();
 
         }
 
-        /*
-        public NewOrderViewModel(Order order)
-        {
-            Setup().ContinueWith(l => { 
-                OrderDetails = new List<OrderDetail>();
-                OrderDetails = OrdersController.GetRowByOrder(order);
-                LabelTitolo = "Modifica Ordine";
-                SelectedCustomer = ListaCustomer.FirstOrDefault(c => c.Id == order.IdCustomer); //CustomersController.GetCustomerByOrder(order);
-                Note = order.Notes;
-            });
-        }
-        */
         
         public NewOrderViewModel(Order order)
         {
             ordineInModifica = new Order();
             ordineInModifica = order;
+            IsReadOnly = false;
+            LabelTitolo = "Modifica Ordine";
             Setup().ContinueWith(l => {
                 OrderDetails = new List<OrderDetail>();
                 OrderDetails = OrdersController.GetRowByOrder(order);
@@ -105,12 +161,16 @@ namespace Rivenditore.ViewModels
                 {
                     od.Item = ListaItem.FirstOrDefault(q => q.Id == od.IdItem);
                 }
-                LabelTitolo = "Modifica Ordine";
                 SelectedCustomer = ListaCustomer.FirstOrDefault(c => c.Id == order.IdCustomer); //CustomersController.GetCustomerByOrder(order);
                 Note = order.Notes;
             });
         }
-        
+
+        public NewOrderViewModel(Order order, string label) : this(order)
+        {
+            LabelTitolo = label;
+            IsReadOnly = true;
+        }
 
         private async Task Setup()
         {

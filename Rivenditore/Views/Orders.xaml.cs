@@ -53,5 +53,10 @@ namespace Rivenditore.Views
         {
             vm.RicaricaStati();
         }
+
+        private void OrdiniDG_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            vm.VisualizzaOrdine();
+        }
     }
 }

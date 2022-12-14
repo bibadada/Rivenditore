@@ -65,6 +65,12 @@ namespace Rivenditore.ViewModels
             }
         }
 
+        internal void VisualizzaOrdine()
+        {
+            NewOrder newOrder = new NewOrder(OrdineSelezionato, "Visualizza Ordine");
+            newOrder.ShowDialog();
+        }
+
         internal async void RicaricaStati()
         {
             try

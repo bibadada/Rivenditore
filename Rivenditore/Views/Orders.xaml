@@ -47,7 +47,7 @@
         </StackPanel>
         <DataGrid Name="OrdiniDG" ItemsSource="{Binding ListaOrders}" SelectedItem="{Binding OrdineSelezionato}"
                    AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" 
-                   IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
+                   IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" MouseDoubleClick="OrdiniDG_MouseDoubleClick">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>

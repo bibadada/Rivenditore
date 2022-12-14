@@ -36,6 +36,13 @@ namespace Rivenditore.Views
             DataContext = vm;
         }
 
+        public NewOrder(Order order, string label)
+        {
+            InitializeComponent();
+            vm = new NewOrderViewModel(order, label);
+            DataContext = vm;
+        }
+
         private void Salva_Click(object sender, RoutedEventArgs e)
         {
             vm.Salva();
@@ -46,6 +53,12 @@ namespace Rivenditore.Views
         private void Annulla_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+
+        private void DataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            vm.NuovoElementoInGriglia();
         }
     }
 }
