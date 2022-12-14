@@ -16,13 +16,14 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
                 <!-- Theme setting -->
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Blue.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <Style x:Key="MainMenuButton" TargetType="Button">
                 <Setter Property="Margin" Value="50"/>
                 <Setter Property="FontSize" Value="25"/>
                 <Setter Property="Height" Value="80"/>
+                <Setter Property="Foreground" Value="Black"/>
             </Style>
 
             <Style x:Key="TitleLable1" TargetType="Label">
