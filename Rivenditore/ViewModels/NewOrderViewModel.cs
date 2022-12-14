@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,7 +65,7 @@ namespace Rivenditore.ViewModels
         }
 
         private string _note;
-
+        [Required]
         public string Note
         {
             get { return _note; }

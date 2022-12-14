@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Rivenditore.ViewModels;
 
 namespace Rivenditore.Models
 {
-    public partial class Order
+    [MetadataTypeAttribute(typeof(OrderExtension))]
+    public partial class Order : BaseViewModel
     {
         private DateTime? _deliveryDate;
 
@@ -48,4 +51,16 @@ namespace Rivenditore.Models
         }
 
     }
+
+    class OrderExtension
+    {
+        public int Id { get; set; }
+        public int IdCustomer { get; set; }
+        public int IdOrderStates { get; set; }
+        public string IdApi { get; set; }
+        public System.DateTime OrderDate { get; set; }
+        public Nullable<System.DateTime> DateOrederPlaced { get; set; }
+        public string Notes { get; set; }
+    }
+
 }
