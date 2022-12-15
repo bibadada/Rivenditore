@@ -9,6 +9,25 @@
         Title="Gestionale Rivenditore" Height="700" Width="1300" MinHeight="500" MinWidth="1000">
     <Grid>
 
+      <!--  <Grid.Background>
+
+
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <LinearGradientBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                        <SkewTransform AngleX="15" CenterY="0.5" CenterX="0.5"/>
+                        <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </LinearGradientBrush.RelativeTransform>
+                <GradientStop Color="#FF22A39F" Offset="1"/>
+                <GradientStop Color="#FF10153A"/>
+            </LinearGradientBrush>
+
+
+        </Grid.Background>-->
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>

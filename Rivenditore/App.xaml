@@ -31,6 +31,7 @@
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="FontSize" Value="40"/>
                 <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="DarkSlateBlue"/>
                 <!--<Setter Property="Grid.ColumnSpan" Value="3"/>-->
 
             </Style>
