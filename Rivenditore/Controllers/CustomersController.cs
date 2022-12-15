@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,7 +55,7 @@ namespace Rivenditore.Controllers
             {
                 try
                 {
-                    Customer candidate = context.Customers.Where(w => w.Id == c.Id).FirstOrDefault();
+                    Customer candidate = context.Customers.FirstOrDefault(w => w.Id == c.Id);
                     if(candidate != null)
                     {
                         //rimuovo l'oggetto dal database
