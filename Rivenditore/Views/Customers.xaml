@@ -10,11 +10,8 @@
 
     <Grid>
         <Grid.Resources>
-            <DataTemplate x:Key="ButtonTemplate" >
+            <DataTemplate x:Key="ButtonEliminaTemplate" >
                 <Button x:Name="Elimina" FontFamily="Segoe MDL2 Assets" FontSize="15" FontWeight="Light" Content="&#xE74D;" Margin="2" Click="Elimina_Click" Background="Red" Foreground="White" />
-
-               
-                
 
             </DataTemplate>
             <!--DataTemplate for the Published Date column when in edit mode. -->
@@ -58,7 +55,7 @@
                 <DataGridTextColumn Header="Cap" Binding="{Binding Cap}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Mail}"/>
                 <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
-                <DataGridTemplateColumn Header="Elimina Cliente" CellTemplate="{StaticResource ButtonTemplate}"/>
+                <DataGridTemplateColumn Header="Elimina Cliente" CellTemplate="{StaticResource ButtonEliminaTemplate}"/>
             </DataGrid.Columns>
 
         </DataGrid>

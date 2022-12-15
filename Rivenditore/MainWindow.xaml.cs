@@ -58,7 +58,7 @@ namespace Rivenditore
         
         private void MenuItem_Click_About(object sender, RoutedEventArgs e)
         {
-            //TODO MESSAGEBOX
+            MessageBox.Show("Project Work - Versione Rivenditore");
         }
     }
 }
