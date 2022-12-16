@@ -43,40 +43,44 @@
         </Border>
 
 
-        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"  Style="{StaticResource TitleLable1}" >
-            <Label.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF262626" Offset="0"/>
-                    <GradientStop Color="#FF1F80EA" Offset="1"/>
-                </LinearGradientBrush>
-            </Label.Background>
-            <Label.Foreground>
-                <SolidColorBrush Color="White"/>
-            </Label.Foreground> Gestionale Rivenditore
+        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"  Style="{StaticResource TitleLable1}"  >Gestionale Rivenditore
         </Label>
-        <Button Grid.Column="0" Grid.Row="1"  Click="Button_Click" Style="{StaticResource MainMenuButton}" Foreground="White" RenderTransformOrigin="0.5,0.5">
+        <Button Grid.Column="0" Grid.Row="1"  Click="Button_Click" Style="{StaticResource MainMenuButton}"  RenderTransformOrigin="0.5,0.5">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF262626" Offset="0"/>
                     <GradientStop Color="#FF1F80EA" Offset="1"/>
                 </LinearGradientBrush>
-            </Button.Background> Archivio Clienti
+            </Button.Background>
+            <StackPanel Orientation="Horizontal">
+                <Label FontFamily="Segoe MDL2 Assets" >&#xE716;</Label>
+                <Label>Archivio Clienti</Label>
+            </StackPanel>
         </Button>
-        <Button Grid.Column="1" Grid.Row="1"  Click="Button_Click_1" Style="{StaticResource MainMenuButton}" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <Button Grid.Column="1" Grid.Row="1"  Click="Button_Click_1" Style="{StaticResource MainMenuButton}" RenderTransformOrigin="0.5,0.5" >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF262626" Offset="0"/>
                     <GradientStop Color="#FF1F80EA" Offset="1"/>
                 </LinearGradientBrush>
-            </Button.Background> Archivio Ordini
+            </Button.Background>
+            <StackPanel Orientation="Horizontal">
+                <Label FontFamily="Segoe MDL2 Assets">&#xE719;</Label>
+                <Label>Archivio ordini</Label>
+            </StackPanel>
         </Button>
-        <Button Grid.Column="2" Grid.Row="1" Click="Button_Click_2" Style="{StaticResource MainMenuButton}" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        
+        <Button Grid.Column="2" Grid.Row="1" Click="Button_Click_2" Style="{StaticResource MainMenuButton}"  >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF262626" Offset="0"/>
                     <GradientStop Color="#FF1F80EA" Offset="1"/>
                 </LinearGradientBrush>
-            </Button.Background> Archivio Articoli
+            </Button.Background>
+            <StackPanel Orientation="Horizontal">
+                <Label FontFamily="Segoe MDL2 Assets">&#xE8F1;</Label>
+                <Label>Archivio Articoli</Label>
+            </StackPanel>
         </Button>
 
     </Grid>
