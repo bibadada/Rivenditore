@@ -142,7 +142,7 @@ namespace Rivenditore.Controllers
 
                     });
 
-                    var response = client.Post<DtoResponse.OrderResponseDTO>(request);
+                    var response = await client.PostAsync<DtoResponse.OrderResponseDTO>(request);
 
                     Order candidate = context.Orders.FirstOrDefault(o => o.Id == order.Id);
 
