@@ -23,7 +23,6 @@
                 <Setter Property="Margin" Value="50"/>
                 <Setter Property="FontSize" Value="25"/>
                 <Setter Property="Height" Value="80"/>
-                <Setter Property="Foreground" Value="Black"/>
             </Style>
 
             <Style x:Key="TitleLable1" TargetType="Label">
@@ -31,7 +30,7 @@
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="FontSize" Value="40"/>
                 <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="Foreground" Value="DarkSlateBlue"/>
+                <Setter Property="Foreground" Value="White"/>
                 <!--<Setter Property="Grid.ColumnSpan" Value="3"/>-->
 
             </Style>
