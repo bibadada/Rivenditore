@@ -93,7 +93,14 @@ namespace Rivenditore.ViewModels
 
         internal void Elimina()
         {
-            this.ListaOrders = OrdersController.Delete(OrdineSelezionato, ListaOrders);
+            try
+            {  
+                this.ListaOrders = OrdersController.Delete(OrdineSelezionato, ListaOrders);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
             Setup();
         }
     }

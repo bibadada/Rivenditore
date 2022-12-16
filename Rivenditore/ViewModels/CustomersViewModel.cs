@@ -65,6 +65,10 @@ namespace Rivenditore.ViewModels
             {
                 MessageBox.Show("Non si può eliminare un cliente con ordini");
             }
+            catch(Exception e)
+            {
+                MessageBox.Show("Errore: " + e.Message + "; riprovare");
+            }
             Setup();
         }
 
