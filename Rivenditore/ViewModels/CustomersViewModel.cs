@@ -74,9 +74,13 @@ namespace Rivenditore.ViewModels
 
         internal void ModificaCliente()
         {
-            NewCustomer newCustomer = new NewCustomer(this.CustomerSelezionato);
-            newCustomer.ShowDialog();
-            Setup();
+            if(CustomerSelezionato != null)
+            {
+                NewCustomer newCustomer = new NewCustomer(this.CustomerSelezionato);
+                newCustomer.ShowDialog();
+                Setup();
+            }
+            
         }
     }
 }
