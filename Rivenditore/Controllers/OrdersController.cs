@@ -33,7 +33,7 @@ namespace Rivenditore.Controllers
             }
         }
 
-        public static List<Order> Delete(Order o, List<Order> list)
+        public static async Task<List<Order>> Delete(Order o, List<Order> list)
         {
             using (RivenditoreEntities context = new RivenditoreEntities())
             {
@@ -53,7 +53,7 @@ namespace Rivenditore.Controllers
                     if (ordineDaEliminare != null)
                         context.Orders.Remove(ordineDaEliminare);
 
-                    context.SaveChanges();
+                    await context.SaveChangesAsync();
 
                     list.Remove(o);
 
@@ -162,7 +162,7 @@ namespace Rivenditore.Controllers
 
         }
 
-        public static void InsertOrder(int idCustomer, string note, List<OrderDetail> righeOrdine)
+        public static async void InsertOrder(int idCustomer, string note, List<OrderDetail> righeOrdine)
         {
 
             using (RivenditoreEntities context = new RivenditoreEntities())
@@ -197,7 +197,7 @@ namespace Rivenditore.Controllers
                     context.Orders.Add(orderToInsert);
 
 
-                    context.SaveChanges();
+                    await context.SaveChangesAsync();
                 }
                 catch (Exception)
                 {
@@ -207,7 +207,7 @@ namespace Rivenditore.Controllers
             }
         }
 
-        public static void ModifyOrder(Order orderToModify, int idCustomer, string note, List<OrderDetail> righeOrdine)
+        public static async void ModifyOrder(Order orderToModify, int idCustomer, string note, List<OrderDetail> righeOrdine)
         {
             using (RivenditoreEntities context = new RivenditoreEntities())
             {
@@ -230,7 +230,7 @@ namespace Rivenditore.Controllers
 
 
 
-                    context.SaveChanges();
+                   await context.SaveChangesAsync();
                 }
                 catch (Exception)
                 {

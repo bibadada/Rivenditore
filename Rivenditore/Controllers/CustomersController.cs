@@ -28,7 +28,7 @@ namespace Rivenditore.Controllers
 
         }
 
-        public static void Insert(Customer c)
+        public static async void Insert(Customer c)
         {
             using(RivenditoreEntities context = new RivenditoreEntities())
             {
@@ -37,7 +37,7 @@ namespace Rivenditore.Controllers
                     if(c != null)
                     {
                         context.Customers.Add(c);
-                        context.SaveChanges();
+                        await context.SaveChangesAsync();
                     }
                 }
                 catch (Exception)

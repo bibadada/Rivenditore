@@ -94,17 +94,17 @@ namespace Rivenditore.ViewModels
             Setup();
         }
 
-        internal void Elimina()
+        internal async void Elimina()
         {
             try
             {  
-                this.ListaOrders = OrdersController.Delete(OrdineSelezionato, ListaOrders);
+                this.ListaOrders = await OrdersController.Delete(OrdineSelezionato, ListaOrders);
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
-            Setup();
+            await Setup();
         }
     }
 }
