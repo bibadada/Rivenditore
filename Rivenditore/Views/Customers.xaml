@@ -47,14 +47,14 @@
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="FiscalCode" Binding="{Binding FiscalCode}"/>
-                <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
-                <DataGridTextColumn Header="City" Binding="{Binding City}"/>
+                <DataGridTextColumn Header="Cognome" Binding="{Binding Surname}"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Codice Fiscale" Binding="{Binding FiscalCode}"/>
+                <DataGridTextColumn Header="Indirizzo" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="Città" Binding="{Binding City}"/>
                 <DataGridTextColumn Header="Cap" Binding="{Binding Cap}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Mail}"/>
-                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Telefono" Binding="{Binding Phone}"/>
                 <DataGridTemplateColumn Header="Elimina Cliente" CellTemplate="{StaticResource ButtonEliminaTemplate}"/>
             </DataGrid.Columns>
 
