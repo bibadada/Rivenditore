@@ -28,11 +28,10 @@
                 <DataGridTextColumn Header="Id"  Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Codice" Width="100" Binding="{Binding Code}"/>
                 <DataGridTextColumn Header="Nome" Width="300" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Peso" Width="100" Binding="{Binding Weight, StringFormat='0.00 kg'}"/>
-                <DataGridTextColumn Header="Volume" Binding="{Binding Volume, StringFormat='0.0 mc'}"/>
-                <DataGridTextColumn Header="Prezzo" Width="100" Binding="{Binding Price , StringFormat='0.00 €'}"/>
-                <DataGridTextColumn Header="Tempo di Consegna" Binding="{Binding LeadTime, StringFormat='0 g'}"/>
-                
+                <DataGridTextColumn Header="Peso" Width="100"   Binding="{Binding Weight, StringFormat='0.00 kg   '}" ElementStyle="{StaticResource CellRightAlign}"/>
+                <DataGridTextColumn Header="Volume"             Binding="{Binding Volume, StringFormat='0.0 mc   '}" ElementStyle="{StaticResource CellRightAlign}"/>
+                <DataGridTextColumn Header="Prezzo" Width="100" Binding="{Binding Price , StringFormat='0.00 €   '}" ElementStyle="{StaticResource CellRightAlign}"/>
+                <DataGridTextColumn Header="Tempo di Consegna"  Binding="{Binding LeadTime, StringFormat='0 g   '}" ElementStyle="{StaticResource CellRightAlign}"/>
             </DataGrid.Columns>
 
         </DataGrid>
