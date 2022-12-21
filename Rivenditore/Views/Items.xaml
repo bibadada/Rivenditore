@@ -26,6 +26,13 @@
         <DataGrid ItemsSource="{Binding ListaItems}" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id"  Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Codice" Width="100" Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Nome" Width="300" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Peso" Width="100" Binding="{Binding Weight, StringFormat='0.00 kg'}"/>
+                <DataGridTextColumn Header="Volume" Binding="{Binding Volume, StringFormat='0.0 mc'}"/>
+                <DataGridTextColumn Header="Prezzo" Width="100" Binding="{Binding Price , StringFormat='0.00 €'}"/>
+                <DataGridTextColumn Header="Tempo di Consegna" Binding="{Binding LeadTime, StringFormat='0 g'}"/>
+                
                 <DataGridTextColumn Header="Code" Width="100" Binding="{Binding Code}"/>
                 <DataGridTextColumn Header="Name" Width="300" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Weight" Width="100" Binding="{Binding Weight, StringFormat='0.00 kg   '}" ElementStyle="{StaticResource CellRightAlign}"/>
