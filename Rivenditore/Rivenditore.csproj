@@ -119,6 +119,7 @@
     <Compile Include="DtoResponse\OrderResponseDTO.cs" />
     <Compile Include="DtoResponse\OrderStatesDTO.cs" />
     <Compile Include="Helpers\OrderStatesConverter.cs" />
+    <Compile Include="Helpers\OrderStatesConverterForColor.cs" />
     <Compile Include="Models\Customer.cs">
       <DependentUpon>RivenditoreDatabase.tt</DependentUpon>
     </Compile>
