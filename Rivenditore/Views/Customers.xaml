@@ -11,7 +11,7 @@
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="ButtonEliminaTemplate" >
-                <Button x:Name="Elimina" FontFamily="Segoe MDL2 Assets" FontSize="15" FontWeight="Light" Content="&#xE74D;" Margin="2" Click="Elimina_Click" Background="Red" Foreground="White" />
+                <Button x:Name="Elimina" FontFamily="Segoe MDL2 Assets" FontSize="15" FontWeight="Light" Content="&#xE74D;" Margin="2" Click="Elimina_Click" Background="Crimson" Foreground="White" />
 
             </DataTemplate>
             <!--DataTemplate for the Published Date column when in edit mode. -->

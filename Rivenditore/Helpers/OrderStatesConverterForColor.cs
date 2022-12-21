@@ -17,7 +17,7 @@ namespace Rivenditore.Helpers
             if (val == 10)
                 return defVal;
             else
-                return "grey";
+                return "Transparent";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
