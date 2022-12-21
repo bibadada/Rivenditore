@@ -28,10 +28,10 @@
                 <DataGridTextColumn Header="Id"  Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Code" Width="100" Binding="{Binding Code}"/>
                 <DataGridTextColumn Header="Name" Width="300" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Weight" Width="100" Binding="{Binding Weight, StringFormat='0.00 kg'}"/>
-                <DataGridTextColumn Header="Volume" Binding="{Binding Volume, StringFormat='0.0 mc'}"/>
-                <DataGridTextColumn Header="Price" Width="100" Binding="{Binding Price , StringFormat='0.00 €'}"/>
-                <DataGridTextColumn Header="LeadTime" Binding="{Binding LeadTime, StringFormat='0 g'}"/>
+                <DataGridTextColumn Header="Weight" Width="100" Binding="{Binding Weight, StringFormat='0.00 kg   '}" ElementStyle="{StaticResource CellRightAlign}"/>
+                <DataGridTextColumn Header="Volume" Binding="{Binding Volume, StringFormat='0.0 mc   '}" ElementStyle="{StaticResource CellRightAlign}"/>
+                <DataGridTextColumn Header="Price" Width="100" Binding="{Binding Price , StringFormat='0.00 €   '}" ElementStyle="{StaticResource CellRightAlign}"/>
+                <DataGridTextColumn Header="LeadTime" Binding="{Binding LeadTime, StringFormat='0 g   '}" ElementStyle="{StaticResource CellRightAlign}"/>
                 
             </DataGrid.Columns>
 

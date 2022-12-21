@@ -24,7 +24,17 @@
                 <Setter Property="FontSize" Value="25"/>
                 <Setter Property="Height" Value="80"/>
             </Style>
+            
+            <Style x:Key="CellRightAlign">
+                <Setter Property="Control.HorizontalAlignment"
+            Value="Right" />
+            </Style>
 
+            <Style x:Key="CellCenterAlign">
+                <Setter Property="Control.HorizontalAlignment"
+            Value="Center" />
+            </Style>
+            
             <Style x:Key="TitleLable1" TargetType="Label">
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="HorizontalAlignment" Value="Center"/>
