@@ -16,13 +16,13 @@
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="ButtonEliminaTemplate" >
-                <Button x:Name="Elimina" FontFamily="Segoe MDL2 Assets" FontSize="15" FontWeight="Light" Content="&#xE74D;" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}, ConverterParameter='Elimina'}" Margin="2" Click="Elimina_Click" Background="Red" Foreground="White" />
+                <Button x:Name="Elimina" FontFamily="Segoe MDL2 Assets" FontSize="16" FontWeight="Light"  Content="&#xE74D;" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}, ConverterParameter='Elimina'}" Margin="2" Click="Elimina_Click" Background="Red" Foreground="White" />
             </DataTemplate>
             <DataTemplate x:Key="ButtonConfermaTemplate">
-                <Button x:Name="Conferma" FontFamily="Segoe MDL2 Assets" Content="&#xE8FB;" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}}" Margin="2" Click="Conferma_Click" Background="Lime" Foreground="White" />
+                <Button x:Name="Conferma" FontFamily="Segoe MDL2 Assets" FontWeight="ExtraBold" FontSize="14" Content="&#xE8FB;" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}}" Margin="2" Click="Conferma_Click" Background="Lime" Foreground="White" />
             </DataTemplate>
             <DataTemplate x:Key="ButtonModificaTemplate" >
-                <Button x:Name="Modifica" Content="Modifica" IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}}" Margin="2" Click="Modifica_Click" Background="Orange" Foreground="White" />
+                <Button x:Name="Modifica" Content="Modifica" FontSize="12"  IsEnabled="{Binding IdOrderStates, Converter={StaticResource OrderStatesConverter}}" Margin="2" Click="Modifica_Click" Background="Orange" Foreground="White" />
             </DataTemplate>
         </Grid.Resources>
 
